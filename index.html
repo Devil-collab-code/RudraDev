@@ -1,0 +1,3363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>60-Day Excel Mastery Course</title>
+    <style>
+        :root {
+            --primary-color: #2b579a;
+            --secondary-color: #217346;
+            --accent-color: #e81123;
+            --light-gray: #f3f3f3;
+            --dark-gray: #333;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 5px;
+            margin-top: 40px;
+        }
+        
+        h3 {
+            color: var(--secondary-color);
+            margin-top: 25px;
+        }
+        
+        .course-overview {
+            background-color: var(--light-gray);
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        
+        .day-container {
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .formula {
+            background-color: #f0f7f4;
+            border-left: 4px solid var(--secondary-color);
+            padding: 10px 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        
+        .tip {
+            background-color: #fff8e1;
+            border-left: 4px solid #ffc107;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        
+        .warning {
+            background-color: #ffebee;
+            border-left: 4px solid var(--accent-color);
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        
+        .exercise {
+            background-color: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        
+        .formula-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .formula-table th, .formula-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        .formula-table th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .formula-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 0;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #1e4b8a;
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary-color);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #1a5e3a;
+        }
+        
+        .progress-container {
+            width: 100%;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        
+        .progress-bar {
+            height: 20px;
+            background-color: var(--secondary-color);
+            border-radius: 5px;
+            width: 0%;
+            transition: width 0.5s;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            line-height: 20px;
+        }
+        
+        .tabs {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .tab {
+            padding: 10px 20px;
+            background-color: #ddd;
+            cursor: pointer;
+            margin-right: 5px;
+            border-radius: 5px 5px 0 0;
+        }
+        
+        .tab.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 20px;
+            background-color: white;
+            border-radius: 0 5px 5px 5px;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .search-container {
+            margin: 20px 0;
+        }
+        
+        #search-input {
+            padding: 10px;
+            width: 100%;
+            max-width: 500px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .formula-category {
+            margin-bottom: 30px;
+        }
+        
+        .formula-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .formula-card {
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 15px;
+            transition: transform 0.3s;
+        }
+        
+        .formula-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .formula-syntax {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f5f5f5;
+            padding: 5px;
+            border-radius: 3px;
+            margin: 10px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .formula-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>60-Day Advanced Excel Mastery Course</h1>
+        <p>From Beginner to Expert with Over 10,000 Formula Variations</p>
+    </header>
+    
+    <div class="course-overview">
+        <h2>Course Overview</h2>
+        <p>This comprehensive 60-day course will take you from Excel basics to advanced mastery, covering formulas, functions, data analysis, visualization, automation, and more.</p>
+        
+        <div class="progress-container">
+            <div class="progress-bar" id="course-progress">0%</div>
+        </div>
+        
+        <div class="tabs">
+            <div class="tab active" onclick="openTab(event, 'curriculum')">Curriculum</div>
+            <div class="tab" onclick="openTab(event, 'resources')">Resources</div>
+            <div class="tab" onclick="openTab(event, 'formulas')">Formula Database</div>
+        </div>
+        
+        <div id="curriculum" class="tab-content active">
+            <h3>Course Structure</h3>
+            <ul>
+                <li><strong>Days 1-10:</strong> Excel Fundamentals & Basic Formulas</li>
+                <li><strong>Days 11-20:</strong> Intermediate Functions & Data Manipulation</li>
+                <li><strong>Days 21-30:</strong> Advanced Formulas & Lookup Techniques</li>
+                <li><strong>Days 31-40:</strong> Data Analysis & Visualization</li>
+                <li><strong>Days 41-50:</strong> Automation & Advanced Features</li>
+                <li><strong>Days 51-60:</strong> Mastery Projects & Real-world Applications</li>
+            </ul>
+        </div>
+        
+        <div id="resources" class="tab-content">
+            <h3>Learning Resources</h3>
+            <ul>
+                <li>Daily video tutorials</li>
+                <li>Practice workbooks for each module</li>
+                <li>Cheat sheets and quick reference guides</li>
+                <li>Community forum for Q&A</li>
+                <li>Weekly challenges and quizzes</li>
+            </ul>
+        </div>
+        
+        <div id="formulas" class="tab-content">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search 10,000+ formulas..." onkeyup="searchFormulas()">
+            </div>
+            
+            <div class="formula-grid" id="formula-container">
+                </div>
+        </div>
+    </div>
+
+    <div class="day-container" id="day1">
+        <h2>Day 1: Excel Interface & Basic Navigation</h2>
+        
+        <h3>Understanding the Excel Interface</h3>
+        <p>Excel consists of worksheets within workbooks. Key components include:</p>
+        <ul>
+            <li>Ribbon (tabs and commands)</li>
+            <li>Formula bar</li>
+            <li>Worksheet tabs</li>
+            <li>Status bar</li>
+            <li>Quick Access Toolbar</li>
+        </ul>
+        
+        <div class="tip">
+            <strong>Tip:</strong> Use <kbd>Alt</kbd> key to display keyboard shortcuts for all ribbon commands.
+        </div>
+        
+        <h3>Basic Navigation Shortcuts</h3>
+        <table class="formula-table">
+            <tr>
+                <th>Action</th>
+                <th>Shortcut</th>
+            </tr>
+            <tr>
+                <td>Move to next cell</td>
+                <td><kbd>→</kbd> or <kbd>Tab</kbd></td>
+            </tr>
+            <tr>
+                <td>Move to previous cell</td>
+                <td><kbd>←</kbd> or <kbd>Shift</kbd> + <kbd>Tab</kbd></td>
+            </tr>
+            <tr>
+                <td>Go to beginning of row</td>
+                <td><kbd>Home</kbd></td>
+            </tr>
+            <tr>
+                <td>Go to cell A1</td>
+                <td><kbd>Ctrl</kbd> + <kbd>Home</kbd></td>
+            </tr>
+            <tr>
+                <td>Go to last cell with data</td>
+                <td><kbd>Ctrl</kbd> + <kbd>End</kbd></td>
+            </tr>
+            <tr>
+                <td>Move between sheets</td>
+                <td><kbd>Ctrl</kbd> + <kbd>Page Up</kbd>/<kbd>Page Down</kbd></td>
+            </tr>
+        </table>
+        
+        <h3>Basic Data Entry</h3>
+        <p>Excel can handle different data types:</p>
+        <ul>
+            <li><strong>Text:</strong> Automatically left-aligned</li>
+            <li><strong>Numbers:</strong> Automatically right-aligned</li>
+            <li><strong>Dates:</strong> Stored as numbers but displayed as dates</li>
+            <li><strong>Formulas:</strong> Begin with = sign</li>
+        </ul>
+        
+        <div class="exercise">
+            <strong>Exercise 1:</strong> Create a new workbook and practice:
+            <ol>
+                <li>Entering text in column A (Names)</li>
+                <li>Entering numbers in column B (Values)</li>
+                <li>Entering dates in column C (Dates)</li>
+                <li>Save the workbook as "Day1_Practice.xlsx"</li>
+            </ol>
+        </div>
+        
+        <div class="nav-buttons">
+            <span></span>
+            <a href="#day2" class="btn">Next: Day 2 →</a>
+        </div>
+    </div>
+
+    <div class="day-container" id="day2">
+        <h2>Day 2: Basic Formulas & Cell References</h2>
+        
+        <h3>Introduction to Formulas</h3>
+        <p>All Excel formulas begin with an equals sign (=). Basic arithmetic operations:</p>
+        
+        <table class="formula-table">
+            <tr>
+                <th>Operation</th>
+                <th>Symbol</th>
+                <th>Example</th>
+                <th>Result</th>
+            </tr>
+            <tr>
+                <td>Addition</td>
+                <td>+</td>
+                <td class="formula">=5+3</td>
+                <td>8</td>
+            </tr>
+            <tr>
+                <td>Subtraction</td>
+                <td>-</td>
+                <td class="formula">=10-4</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>Multiplication</td>
+                <td>*</td>
+                <td class="formula">=2*6</td>
+                <td>12</td>
+            </tr>
+            <tr>
+                <td>Division</td>
+                <td>/</td>
+                <td class="formula">=15/3</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>Exponentiation</td>
+                <td>^</td>
+                <td class="formula">=3^2</td>
+                <td>9</td>
+            </tr>
+            <tr>
+                <td>Percentage</td>
+                <td>%</td>
+                <td class="formula">=20%</td>
+                <td>0.2</td>
+            </tr>
+        </table>
+        
+        <h3>Cell References</h3>
+        <p>References allow formulas to dynamically update when cell values change:</p>
+        
+        <div class="formula">
+            <strong>Relative Reference:</strong> =A1+B1 (changes when copied to other cells)
+        </div>
+        
+        <div class="formula">
+            <strong>Absolute Reference:</strong> =$A$1+$B$1 (stays fixed when copied)
+        </div>
+        
+        <div class="formula">
+            <strong>Mixed Reference:</strong> =A$1+$B1 (row or column stays fixed)
+        </div>
+        
+        <div class="tip">
+            <strong>Tip:</strong> Press <kbd>F4</kbd> to cycle through reference types when editing a formula.
+        </div>
+        
+        <h3>Basic Functions</h3>
+        
+        <div class="formula">
+            <strong>SUM:</strong> =SUM(A1:A10) - Adds all numbers in the range
+        </div>
+        
+        <div class="formula">
+            <strong>AVERAGE:</strong> =AVERAGE(B2:B20) - Calculates the average
+        </div>
+        
+        <div class="formula">
+            <strong>MAX/MIN:</strong> =MAX(C1:C100) - Finds highest value in range
+        </div>
+        
+        <div class="exercise">
+            <strong>Exercise 2:</strong> Create a simple budget:
+            <ol>
+                <li>In column A, list expenses (Rent, Food, Utilities, etc.)</li>
+                <li>In column B, enter amounts for each expense</li>
+                <li>Use SUM to calculate total expenses</li>
+                <li>Use AVERAGE to find average expense</li>
+                <li>Use MAX to find largest expense</li>
+            </ol>
+        </div>
+        
+        <div class="nav-buttons">
+            <a href="#day1" class="btn btn-secondary">← Previous: Day 1</a>
+            <a href="#day3" class="btn">Next: Day 3 →</a>
+        </div>
+    </div>
+
+    <div class="day-container" id="day3">
+        <h2>Day 3: Text Functions & Formatting</h2>
+        
+        <h3>Common Text Functions</h3>
+        
+        <div class="formula">
+            <strong>CONCATENATE / CONCAT / &:</strong> =A1&" "&B1 or =CONCAT(A1,B1)
+        </div>
+        
+        <div class="formula">
+            <strong>LEFT/RIGHT/MID:</strong> =LEFT(A1,3) - First 3 characters
+        </div>
+        
+        <div class="formula">
+            <strong>LEN:</strong> =LEN(A1) - Counts characters in cell
+        </div>
+        
+        <div class="formula">
+            <strong>TRIM:</strong> =TRIM(A1) - Removes extra spaces
+        </div>
+        
+        <div class="formula">
+            <strong>UPPER/LOWER/PROPER:</strong> =PROPER(A1) - Capitalizes first letters
+        </div>
+        
+        <h3>Number Formatting</h3>
+        <p>Control how numbers display without changing their value:</p>
+        <ul>
+            <li>General (default)</li>
+            <li>Number (with decimal places)</li>
+            <li>Currency</li>
+            <li>Accounting</li>
+            <li>Date/Time</li>
+            <li>Percentage</li>
+            <li>Fraction</li>
+            <li>Scientific</li>
+            <li>Text</li>
+            <li>Custom</li>
+        </ul>
+        
+        <div class="exercise">
+            <strong>Exercise 3:</strong> Format a contact list:
+            <ol>
+                <li>Combine first and last names using CONCATENATE</li>
+                <li>Extract area codes from phone numbers using LEFT/MID</li>
+                <li>Standardize case formatting for addresses</li>
+                <li>Format phone numbers consistently</li>
+            </ol>
+        </div>
+        
+        <div class="nav-buttons">
+            <a href="#day2" class="btn btn-secondary">← Previous: Day 2</a>
+            <a href="#day4" class="btn">Next: Day 4 →</a>
+        </div>
+    </div>
+    <div class="day-container" id="day4">
+    <h2>Day 4: Number Formatting & Cell Styles</h2>
+    
+    <h3>Custom Number Formatting</h3>
+    <p>Create custom display formats without changing the actual value:</p>
+    
+    <table class="formula-table">
+        <tr>
+            <th>Format Code</th>
+            <th>Example Input</th>
+            <th>Displayed As</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>0.00</td>
+            <td>3.14159</td>
+            <td>3.14</td>
+            <td>Forces 2 decimal places</td>
+        </tr>
+        <tr>
+            <td>#,##0</td>
+            <td>12345</td>
+            <td>12,345</td>
+            <td>Thousand separator</td>
+        </tr>
+        <tr>
+            <td>$#,##0.00;($#,##0.00)</td>
+            <td>1234.5</td>
+            <td>$1,234.50</td>
+            <td>Currency with negative in parentheses</td>
+        </tr>
+        <tr>
+            <td>0.00%</td>
+            <td>0.125</td>
+            <td>12.50%</td>
+            <td>Percentage format</td>
+        </tr>
+        <tr>
+            <td>yyyy-mm-dd</td>
+            <td>44562</td>
+            <td>2022-01-15</td>
+            <td>Date format</td>
+        </tr>
+        <tr>
+            <td>##0.0E+0</td>
+            <td>12345</td>
+            <td>12.3E+3</td>
+            <td>Scientific notation</td>
+        </tr>
+    </table>
+
+    <div class="tip">
+        <strong>Tip:</strong> Use <kbd>Ctrl</kbd>+<kbd>1</kbd> to quickly open the Format Cells dialog.
+    </div>
+
+    <h3>Cell Styles and Themes</h3>
+    <p>Consistent formatting with built-in styles:</p>
+    <ul>
+        <li><strong>Good/Bad/Neutral:</strong> Quick conditional formatting</li>
+        <li><strong>Title/Heading:</strong> Consistent headers</li>
+        <li><strong>Data Model:</strong> Input/Calculation/Output</li>
+        <li><strong>Number Format:</strong> Pre-formatted numbers</li>
+        <li><strong>Themes:</strong> Unified color/font schemes</li>
+    </ul>
+
+    <div class="exercise">
+        <strong>Exercise 4:</strong> Format a financial report:
+        <ol>
+            <li>Apply currency formatting to monetary values</li>
+            <li>Use custom date formats</li>
+            <li>Create heading styles for sections</li>
+            <li>Apply a theme and modify colors</li>
+            <li>Format negative numbers in red with parentheses</li>
+        </ol>
+    </div>
+
+    <div class="nav-buttons">
+        <a href="#day3" class="btn btn-secondary">← Previous: Day 3</a>
+        <a href="#day5" class="btn">Next: Day 5 →</a>
+    </div>
+</div>
+
+<div class="day-container" id="day5">
+    <h2>Day 5: Basic Charts & Graphs</h2>
+    
+    <h3>Chart Types and Selection</h3>
+    <table class="formula-table">
+        <tr>
+            <th>Chart Type</th>
+            <th>Best For</th>
+            <th>Example Data</th>
+        </tr>
+        <tr>
+            <td>Column/Bar</td>
+            <td>Comparing categories</td>
+            <td>Sales by region</td>
+        </tr>
+        <tr>
+            <td>Line</td>
+            <td>Trends over time</td>
+            <td>Monthly sales</td>
+        </tr>
+        <tr>
+            <td>Pie/Doughnut</td>
+            <td>Proportions</td>
+            <td>Market share</td>
+        </tr>
+        <tr>
+            <td>Scatter (XY)</td>
+            <td>Relationships</td>
+            <td>Height vs Weight</td>
+        </tr>
+        <tr>
+            <td>Area</td>
+            <td>Cumulative trends</td>
+            <td>Revenue over time</td>
+        </tr>
+    </table>
+
+    <h3>Essential Chart Elements</h3>
+    <ul>
+        <li><strong>Axes:</strong> Primary/secondary, scaling</li>
+        <li><strong>Data Labels:</strong> Values on points</li>
+        <li><strong>Legends:</strong> Series identification</li>
+        <li><strong>Trendlines:</strong> Linear, moving average</li>
+        <li><strong>Error Bars:</strong> Data variability</li>
+    </ul>
+
+    <div class="formula">
+        <strong>Quick Chart:</strong> Select data → <kbd>Alt</kbd>+<kbd>F1</kbd> (embedded) or <kbd>F11</kbd> (chart sheet)
+    </div>
+
+    <div class="warning">
+        <strong>Warning:</strong> Avoid 3D charts as they often distort data perception.
+    </div>
+
+    <div class="exercise">
+        <strong>Exercise 5:</strong> Create a dashboard with:
+        <ol>
+            <li>Column chart comparing quarterly sales</li>
+            <li>Line chart showing monthly trends</li>
+            <li>Pie chart for product mix</li>
+            <li>Add trendlines to the line chart</li>
+            <li>Format all charts professionally</li>
+        </ol>
+    </div>
+
+    <div class="nav-buttons">
+        <a href="#day4" class="btn btn-secondary">← Previous: Day 4</a>
+        <a href="#day6" class="btn">Next: Day 6 →</a>
+    </div>
+</div>
+
+<div class="day-container" id="day6">
+    <h2>Day 6: Sorting & Filtering</h2>
+    
+    <h3>Sorting Techniques</h3>
+    <table class="formula-table">
+        <tr>
+            <th>Sort Type</th>
+            <th>Method</th>
+            <th>Example</th>
+        </tr>
+        <tr>
+            <td>Single Column</td>
+            <td>Data → Sort A-Z/Z-A</td>
+            <td>Sort customers alphabetically</td>
+        </tr>
+        <tr>
+            <td>Multi-Level</td>
+            <td>Custom Sort → Add Level</td>
+            <td>Sort by region then by sales</td>
+        </tr>
+        <tr>
+            <td>Custom List</td>
+            <td>Options → Custom List</td>
+            <td>Sort by weekday names</td>
+        </tr>
+        <tr>
+            <td>Left-to-Right</td>
+            <td>Options → Sort left to right</td>
+            <td>Sort columns by header</td>
+        </tr>
+    </table>
+
+    <h3>Filtering Methods</h3>
+    <div class="formula">
+        <strong>AutoFilter:</strong> Data → Filter (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>L</kbd>)
+    </div>
+    
+    <div class="formula">
+        <strong>Advanced Filter:</strong> Data → Advanced (unique records, complex criteria)
+    </div>
+    
+    <div class="formula">
+        <strong>Filter by Color:</strong> Right-click → Filter → By Selected Cell's Color
+    </div>
+
+    <h3>Special Filter Types</h3>
+    <ul>
+        <li><strong>Text Filters:</strong> Begins with, contains, wildcards (*?)</li>
+        <li><strong>Number Filters:</strong> Top 10, above average, custom</li>
+        <li><strong>Date Filters:</strong> This month, next quarter, year-to-date</li>
+    </ul>
+
+    <div class="exercise">
+        <strong>Exercise 6:</strong> Analyze sales data:
+        <ol>
+            <li>Sort by region then by salesperson</li>
+            <li>Filter to show only Q2 results</li>
+            <li>Create a custom sort for product categories</li>
+            <li>Use advanced filter to extract records over $10,000</li>
+            <li>Filter by color-coded priority cells</li>
+        </ol>
+    </div>
+
+    <div class="nav-buttons">
+        <a href="#day5" class="btn btn-secondary">← Previous: Day 5</a>
+        <a href="#day7" class="btn">Next: Day 7 →</a>
+    </div>
+</div>
+
+<div class="day-container" id="day7">
+    <h2>Day 7: Worksheet Management & Printing</h2>
+    
+    <h3>Worksheet Organization</h3>
+    <table class="formula-table">
+        <tr>
+            <th>Feature</th>
+            <th>Shortcut</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>Group Sheets</td>
+            <td><kbd>Ctrl</kbd>+click sheets</td>
+            <td>Edit multiple sheets simultaneously</td>
+        </tr>
+        <tr>
+            <td>Move/Copy</td>
+            <td>Right-click sheet tab</td>
+            <td>Reorganize or duplicate sheets</td>
+        </tr>
+        <tr>
+            <td>Tab Color</td>
+            <td>Right-click sheet tab</td>
+            <td>Color-code for organization</td>
+        </tr>
+        <tr>
+            <td>Hide/Unhide</td>
+            <td>Right-click sheet tab</td>
+            <td>Protect sensitive data</td>
+        </tr>
+        <tr>
+            <td>3D References</td>
+            <td>=SUM(Sheet1:Sheet3!A1)</td>
+            <td>Reference same cell across sheets</td>
+        </tr>
+    </table>
+
+    <h3>Printing Professional Reports</h3>
+    <div class="formula">
+        <strong>Print Area:</strong> Page Layout → Print Area → Set Print Area
+    </div>
+    
+    <div class="formula">
+        <strong>Print Titles:</strong> Page Layout → Print Titles (repeat rows/columns)
+    </div>
+    
+    <div class="formula">
+        <strong>Page Setup:</strong> Margins, orientation, scaling (fit to page)
+    </div>
+    
+    <div class="formula">
+        <strong>Headers/Footers:</strong> Insert custom text, page numbers, dates
+    </div>
+
+    <div class="tip">
+        <strong>Tip:</strong> Use Page Break Preview (View tab) to manually adjust what prints on each page.
+    </div>
+
+    <div class="exercise">
+        <strong>Exercise 7:</strong> Prepare a multi-sheet workbook:
+        <ol>
+            <li>Create 3 worksheets with related data</li>
+            <li>Use grouping to format all sheets at once</li>
+            <li>Set up a summary sheet with 3D references</li>
+            <li>Configure professional printing:
+                <ul>
+                    <li>Set print areas</li>
+                    <li>Add headers/footers</li>
+                    <li>Repeat title rows</li>
+                    <li>Adjust page breaks</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <div class="nav-buttons">
+        <a href="#day6" class="btn btn-secondary">← Previous: Day 6</a>
+        <a href="#day8" class="btn">Next: Day 8 →</a>
+    </div>
+</div>
+
+<div class="day-container" id="day8">
+    <h2>Day 8: Date & Time Functions</h2>
+    
+    <h3>Essential Date Functions</h3>
+    <table class="formula-table">
+        <tr>
+            <th>Function</th>
+            <th>Syntax</th>
+            <th>Example</th>
+            <th>Result</th>
+        </tr>
+        <tr>
+            <td>TODAY</td>
+            <td>=TODAY()</td>
+            <td>=TODAY()</td>
+            <td>Current date</td>
+        </tr>
+        <tr>
+            <td>NOW</td>
+            <td>=NOW()</td>
+            <td>=NOW()</td>
+            <td>Current date/time</td>
+        </tr>
+        <tr>
+            <td>DATE</td>
+            <td>=DATE(year,month,day)</td>
+            <td>=DATE(2023,12,25)</td>
+            <td>12/25/2023</td>
+        </tr>
+        <tr>
+            <td>DATEDIF</td>
+            <td>=DATEDIF(start,end,unit)</td>
+            <td>=DATEDIF(A1,TODAY(),"Y")</td>
+            <td>Years between dates</td>
+        </tr>
+        <tr>
+            <td>EDATE</td>
+            <td>=EDATE(start,months)</td>
+            <td>=EDATE(A1,3)</td>
+            <td>Date 3 months later</td>
+        </tr>
+    </table>
+
+    <h3>Time Calculations</h3>
+    <div class="formula">
+        <strong>NETWORKDAYS:</strong> =NETWORKDAYS(start,end,[holidays]) (excludes weekends)
+    </div>
+    
+    <div class="formula">
+        <strong>WORKDAY:</strong> =WORKDAY(start,days,[holidays]) (adds workdays)
+    </div>
+    
+    <div class="formula">
+        <strong>YEARFRAC:</strong> =YEARFRAC(start,end,[basis]) (fraction of year)
+    </div>
+    
+    <div class="formula">
+        <strong>TIME:</strong> =TIME(hour,minute,second) (creates time value)
+    </div>
+
+    <h3>Date Components</h3>
+    <div class="formula-grid">
+        <div class="formula-card">
+            <div class="formula-syntax">=YEAR(date)</div>
+            <p>Extracts year from date</p>
+        </div>
+        <div class="formula-card">
+            <div class="formula-syntax">=MONTH(date)</div>
+            <p>Returns month number (1-12)</p>
+        </div>
+        <div class="formula-card">
+            <div class="formula-syntax">=DAY(date)</div>
+            <p>Returns day of month</p>
+        </div>
+        <div class="formula-card">
+            <div class="formula-syntax">=WEEKDAY(date,[type])</div>
+            <p>Returns day of week (1-7)</p>
+        </div>
+        <div class="formula-card">
+            <div class="formula-syntax">=WEEKNUM(date,[type])</div>
+            <p>Returns week number</p>
+        </div>
+        <div class="formula-card">
+            <div class="formula-syntax">=EOMONTH(start,months)</div>
+            <p>End of month n months away</p>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <strong>Exercise 8:</strong> Create a project timeline:
+        <ol>
+            <li>Calculate project duration in workdays</li>
+            <li>Determine end date given start date and duration</li>
+            <li>Flag dates that fall on weekends</li>
+            <li>Calculate percentage of year completed</li>
+            <li>Create a dynamic Gantt chart using conditional formatting</li>
+        </ol>
+    </div>
+
+    <div class="nav-buttons">
+        <a href="#day7" class="btn btn-secondary">← Previous: Day 7</a>
+        <a href="#day9" class="btn">Next: Day 9 →</a>
+    </div>
+</div>
+
+<div class="day-container" id="day9">
+    <h2>Day 9: Statistical Functions</h2>
+    
+    <h3>Basic Statistical Functions</h3>
+    <table class="formula-table">
+        <tr>
+            <th>Function</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+        <tr>
+            <td>AVERAGE</td>
+            <td>Mean of numbers</td>
+            <td>=AVERAGE(B2:B20)</td>
+        </tr>
+        <tr>
+            <td>MEDIAN</td>
+            <td>Middle value</td>
+            <td>=MEDIAN(C2:C100)</td>
+        </tr>
+        <tr>
+            <td>MODE</td>
+            <td>Most frequent value</td>
+            <td>=MODE.SNGL(D2:D50)</td>
+        </tr>
+        <tr>
+            <td>STDEV</td>
+            <td>Standard deviation</td>
+            <td>=STDEV.P(E2:E30)</td>
+        </tr>
+        <tr>
+            <td>VAR</td>
+            <td>Variance</td>
+            <td>=VAR.P(F2:F25)</td>
+        </tr>
+    </table>
+
+    <h3>Advanced Statistical Analysis</h3>
+    <div class="formula-grid">
+        <div class="formula-card">
+            <div class="formula-syntax">=CORREL(array1,array2)</div>
+            <p>Correlation coefficient (-1 to 1)</p>
+        </div>
+        <div class="formula-card">
+            <div class="formula-syntax">=FORECAST(x,known_y's,known_x's)</div>
+            <p>Linear trend prediction</p>
+        </div>
+        <div class="formula-card">
+            <div class="formula-syntax">=GROWTH(known_y's,[known_x's],[new_x's])</div>
+            <p>Exponential trend prediction</p>
+        </div>
+        <div class="formula-card">
+            <div class="formula-syntax">=LINEST(known_y's,known_x's)</div>
+            <p>Linear regression statistics</p>
+        </div>
+        <div class="formula-card">
+            <div class="formula-syntax">=TREND(known_y's,known_x's,new_x's)</div>
+            <p>Returns values along linear trend</p>
+        </div>
+        <div class="formula-card">
+            <div class="formula-syntax">=FREQUENCY(data_array,bins_array)</div>
+            <p>Array function for frequency distribution</p>
+        </div>
+    </div>
+
+    <h3>Counting Functions</h3>
+    <div class="formula">
+        <strong>COUNT:</strong> =COUNT(range) (numbers only)
+    </div>
+    
+    <div class="formula">
+        <strong>COUNTA:</strong> =COUNTA(range) (non-empty cells)
+    </div>
+    
+    <div class="formula">
+        <strong>COUNTBLANK:</strong> =COUNTBLANK(range) (empty cells)
+    </div>
+    
+    <div class="formula">
+        <strong>COUNTIF:</strong> =COUNTIF(range,criteria) (conditional count)
+    </div>
+
+    <div class="exercise">
+        <strong>Exercise 9:</strong> Analyze survey data:
+        <ol>
+            <li>Calculate mean, median, and mode for key metrics</li>
+            <li>Determine standard deviation to assess variability</li>
+            <li>Create a frequency distribution of age groups</li>
+            <li>Calculate correlation between variables</li>
+            <li>Use COUNTIF to tally specific responses</li>
+            <li>Create a linear forecast for future trends</li>
+        </ol>
+    </div>
+
+    <div class="nav-buttons">
+        <a href="#day8" class="btn btn-secondary">← Previous: Day 8</a>
+        <a href="#day10" class="btn">Next: Day 10 →</a>
+    </div>
+</div>
+
+    <div class="day-container" id="day10">
+    <h2>Day 10: Logical Functions</h2>
+    
+    <h3>IF Function Fundamentals</h3>
+    <div class="formula">
+        <strong>Basic Syntax:</strong> =IF(logical_test, value_if_true, value_if_false)
+    </div>
+    
+    <div class="exercise">
+        <h4>Employee Bonus Eligibility Dataset</h4>
+        <table class="formula-table">
+            <tr>
+                <th>Employee ID</th>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Years Service</th>
+                <th>Performance Score</th>
+                <th>Bonus Eligible</th>
+            </tr>
+            <tr>
+                <td>E1001</td>
+                <td>John Smith</td>
+                <td>Sales</td>
+                <td>3</td>
+                <td>85</td>
+                <td class="formula">=IF(D2>=2,"Yes","No")</td>
+            </tr>
+            <tr>
+                <td>E1002</td>
+                <td>Sarah Johnson</td>
+                <td>Marketing</td>
+                <td>1</td>
+                <td>92</td>
+                <td class="formula">=IF(D3>=2,"Yes","No")</td>
+            </tr>
+            <tr>
+                <td>E1003</td>
+                <td>Michael Lee</td>
+                <td>IT</td>
+                <td>5</td>
+                <td>78</td>
+                <td class="formula">=IF(D4>=2,"Yes","No")</td>
+            </tr>
+        </table>
+        <p><strong>Exercise:</strong> Extend the formula to check both years of service AND performance score > 80</p>
+    </div>
+
+    <h3>Nested IF Functions</h3>
+    <div class="formula">
+        <strong>Syntax:</strong> =IF(condition1, result1, IF(condition2, result2, default_result))
+    </div>
+    
+    <div class="exercise">
+        <h4>Student Grading System</h4>
+        <table class="formula-table">
+            <tr>
+                <th>Student ID</th>
+                <th>Name</th>
+                <th>Score</th>
+                <th>Grade</th>
+            </tr>
+            <tr>
+                <td>S101</td>
+                <td>Emma Wilson</td>
+                <td>92</td>
+                <td class="formula">=IF(C2>=90,"A",IF(C2>=80,"B",IF(C2>=70,"C",IF(C2>=60,"D","F"))))</td>
+            </tr>
+            <tr>
+                <td>S102</td>
+                <td>James Brown</td>
+                <td>85</td>
+                <td class="formula">=IF(C3>=90,"A",IF(C3>=80,"B",IF(C3>=70,"C",IF(C3>=60,"D","F"))))</td>
+            </tr>
+            <tr>
+                <td>S103</td>
+                <td>Olivia Davis</td>
+                <td>72</td>
+                <td class="formula">=IF(C4>=90,"A",IF(C4>=80,"B",IF(C4>=70,"C",IF(C4>=60,"D","F"))))</td>
+            </tr>
+        </table>
+        <p><strong>Challenge:</strong> Add "+" and "-" modifiers for scores ending with 7-9 or 0-2</p>
+    </div>
+
+    <h3>AND/OR/NOT Functions</h3>
+    <div class="formula-grid">
+        <div class="formula-card">
+            <div class="formula-syntax">=AND(condition1, condition2)</div>
+            <p>Returns TRUE only if ALL conditions are met</p>
+        </div>
+        <div class="formula-card">
+            <div class="formula-syntax">=OR(condition1, condition2)</div>
+            <p>Returns TRUE if ANY condition is met</p>
+        </div>
+        <div class="formula-card">
+            <div class="formula-syntax">=NOT(condition)</div>
+            <p>Reverses the logical value</p>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <h4>Project Approval System</h4>
+        <table class="formula-table">
+            <tr>
+                <th>Project ID</th>
+                <th>Budget ($)</th>
+                <th>Duration (weeks)</th>
+                <th>Risk Level</th>
+                <th>Approval Status</th>
+            </tr>
+            <tr>
+                <td>P001</td>
+                <td>120,000</td>
+                <td>8</td>
+                <td>Medium</td>
+                <td class="formula">=IF(AND(B2<=150000, C2<=12, NOT(D2="High")), "Approved", "Review Needed")</td>
+            </tr>
+            <tr>
+                <td>P002</td>
+                <td>180,000</td>
+                <td>6</td>
+                <td>Low</td>
+                <td class="formula">=IF(AND(B3<=150000, C3<=12, NOT(D3="High")), "Approved", "Review Needed")</td>
+            </tr>
+            <tr>
+                <td>P003</td>
+                <td>95,000</td>
+                <td>14</td>
+                <td>High</td>
+                <td class="formula">=IF(AND(B4<=150000, C4<=12, NOT(D4="High")), "Approved", "Review Needed")</td>
+            </tr>
+        </table>
+        <p><strong>Exercise:</strong> Modify to approve if EITHER budget < $100K OR duration < 4 weeks</p>
+    </div>
+
+    <h3>IFERROR Function</h3>
+    <div class="formula">
+        <strong>Syntax:</strong> =IFERROR(value, value_if_error)
+    </div>
+    
+    <div class="exercise">
+        <h4>Division Calculator with Error Handling</h4>
+        <table class="formula-table">
+            <tr>
+                <th>Numerator</th>
+                <th>Denominator</th>
+                <th>Result</th>
+                <th>Safe Result</th>
+            </tr>
+            <tr>
+                <td>25</td>
+                <td>5</td>
+                <td class="formula">=A2/B2</td>
+                <td class="formula">=IFERROR(A2/B2, "Error")</td>
+            </tr>
+            <tr>
+                <td>18</td>
+                <td>0</td>
+                <td class="formula">=A3/B3</td>
+                <td class="formula">=IFERROR(A3/B3, "Error")</td>
+            </tr>
+            <tr>
+                <td>"Twenty"</td>
+                <td>4</td>
+                <td class="formula">=A4/B4</td>
+                <td class="formula">=IFERROR(A4/B4, "Error")</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="exercise">
+        <h4>VLOOKUP with Error Handling</h4>
+        <table class="formula-table">
+            <tr>
+                <th>Product ID</th>
+                <th>Lookup Result</th>
+                <th>Safe Lookup</th>
+            </tr>
+            <tr>
+                <td>PRD100</td>
+                <td class="formula">=VLOOKUP(A2,$G$2:$H$10,2,FALSE)</td>
+                <td class="formula">=IFERROR(VLOOKUP(A2,$G$2:$H$10,2,FALSE),"Not Found")</td>
+            </tr>
+            <tr>
+                <td>PRD999</td>
+                <td class="formula">=VLOOKUP(A3,$G$2:$H$10,2,FALSE)</td>
+                <td class="formula">=IFERROR(VLOOKUP(A3,$G$2:$H$10,2,FALSE),"Not Found")</td>
+            </tr>
+        </table>
+        <p><strong>Reference Table (G2:H10):</strong></p>
+        <table class="formula-table">
+            <tr>
+                <th>Product ID</th>
+                <th>Product Name</th>
+            </tr>
+            <tr>
+                <td>PRD100</td>
+                <td>Laptop</td>
+            </tr>
+            <tr>
+                <td>PRD101</td>
+                <td>Mouse</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="nav-buttons">
+        <a href="#day9" class="btn btn-secondary">← Previous: Day 9</a>
+        <a href="#day11" class="btn">Next: Day 11 →</a>
+    </div>
+</div>
+
+    <div class="day-container" id="day11">
+        <h2>Day 11: Conditional Formatting</h2>
+        <h3>Basic Conditional Formatting</h3>
+        <table class="formula-table">
+            <tr>
+                <th>Format Type</th>
+                <th>Description</th>
+                <th>Example</th>
+            </tr>
+            <tr>
+                <td>Highlight Cells Rules</td>
+                <td>Format cells based on values</td>
+                <td>Greater than 100 → Red</td>
+            </tr>
+            <tr>
+                <td>Top/Bottom Rules</td>
+                <td>Format extreme values</td>
+                <td>Top 10% → Green</td>
+            </tr>
+            <tr>
+                <td>Data Bars</td>
+                <td>In-cell bar charts</td>
+                <td>Length represents value</td>
+            </tr>
+            <tr>
+                <td>Color Scales</td>
+                <td>Heat map gradients</td>
+                <td>Red-Yellow-Green</td>
+            </tr>
+            <tr>
+                <td>Icon Sets</td>
+                <td>Visual indicators</td>
+                <td>Arrows, flags, ratings</td>
+            </tr>
+        </table>
+        <h3>Advanced Conditional Formatting with Formulas</h3>
+        <div class="formula-grid">
+            <div class="formula-card">
+                <div class="formula-syntax">=AND(A1>100, A1<200)</div>
+                <p>Format if between 100-200</p>
+            </div>
+            <div class="formula-card">
+                <div class="formula-syntax">=MOD(ROW(),2)=0</div>
+                <p>Alternate row shading</p>
+            </div>
+            <div class="formula-card">
+                <div class="formula-syntax">=A1>TODAY()</div>
+                <p>Future dates</p>
+            </div>
+            <div class="formula-card">
+                <div class="formula-syntax">=COUNTIF($A$1:$A$10,A1)>1</div>
+                <p>Duplicate values</p>
+            </div>
+        </div>
+        <div class="exercise">
+            <strong>Exercise 11:</strong> Create a dynamic heat map:
+            <ol>
+                <li>Apply color scales to financial data</li>
+                <li>Highlight overdue dates in red</li>
+                <li>Flag inventory below safety stock</li>
+                <li>Create alternating row colors with formula</li>
+                <li>Add data bars to visualize quantities</li>
+            </ol>
+        </div>
+        <div class="nav-buttons">
+            <a href="#day10" class="btn btn-secondary">← Previous: Day 10</a>
+            <a href="#day12" class="btn">Next: Day 12 →</a>
+        </div>
+    </div>
+    <div class="day-container" id="day12">
+        <h2>Day 12: Data Validation</h2>
+        <h3>Data Validation Techniques</h3>
+        <table class="formula-table">
+            <tr>
+                <th>Validation Type</th>
+                <th>Settings</th>
+                <th>Example</th>
+            </tr>
+            <tr>
+                <td>Whole Number</td>
+                <td>Between 1-100</td>
+                <td>Age validation</td>
+            </tr>
+            <tr>
+                <td>List</td>
+                <td>Source: $A$1:$A$5</td>
+                <td>Department dropdown</td>
+            </tr>
+            <tr>
+                <td>Date</td>
+                <td>After 1/1/2020</td>
+                <td>Project start date</td>
+            </tr>
+            <tr>
+                <td>Text Length</td>
+                <td>Maximum 10</td>
+                <td>Product codes</td>
+            </tr>
+            <tr>
+                <td>Custom</td>
+                <td>=ISNUMBER(FIND("@",A1))</td>
+                <td>Email validation</td>
+            </tr>
+        </table>
+        <h3>Advanced Validation Features</h3>
+        <div class="formula">
+            <strong>Dynamic Lists:</strong> =INDIRECT("Table_"&B1) (dependent dropdowns)
+        </div>
+        <div class="formula">
+            <strong>Input Messages:</strong> Guide users when cell is selected
+        </div>
+        <div class="formula">
+            <strong>Error Alerts:</strong> Custom messages for invalid entries
+        </div>
+        <div class="formula">
+            <strong>Circle Invalid Data:</strong> Data → Validation → Circle Invalid
+        </div>
+        <div class="exercise">
+            <strong>Exercise 12:</strong> Build a validated input form:
+            <ol>
+                <li>Create dropdown lists for categories</li>
+                <li>Set up dependent dropdowns (e.g., model based on brand)</li>
+                <li>Validate email formats</li>
+                <li>Restrict dates to workdays</li>
+                <li>Add helpful input messages</li>
+            </ol>
+        </div>
+        <div class="nav-buttons">
+            <a href="#day11" class="btn btn-secondary">← Previous: Day 11</a>
+            <a href="#day13" class="btn">Next: Day 13 →</a>
+        </div>
+    </div>
+    <div class="day-container" id="day13">
+        <h2>Day 13: Named Ranges</h2>
+        <h3>Creating Named Ranges</h3>
+        <table class="formula-table">
+            <tr>
+                <th>Method</th>
+                <th>Shortcut</th>
+                <th>Scope</th>
+            </tr>
+            <tr>
+                <td>Define Name</td>
+                <td>Formulas → Define Name</td>
+                <td>Workbook/Worksheet</td>
+            </tr>
+            <tr>
+                <td>Name Box</td>
+                <td>Select range → Type in Name Box</td>
+                <td>Workbook</td>
+            </tr>
+            <tr>
+                <td>Create from Selection</td>
+                <td>Formulas → Create from Selection</td>
+                <td>Workbook</td>
+            </tr>
+            <tr>
+                <td>Dynamic Names</td>
+                <td>=OFFSET($A$1,0,0,COUNTA($A:$A),1)</td>
+                <td>Automatically expanding</td>
+            </tr>
+        </table>
+        <h3>Advanced Named Range Techniques</h3>
+        <div class="formula-grid">
+            <div class="formula-card">
+                <div class="formula-syntax">=SUM(Sales_Q1)</div>
+                <p>Use in formulas instead of A1:B10</p>
+            </div>
+            <div class="formula-card">
+                <div class="formula-syntax">=INDIRECT("Dept_"&B1)</div>
+                <p>Dynamic range references</p>
+            </div>
+            <div class="formula-card">
+                <div class="formula-syntax">=TABLE_NAME[COLUMN]</div>
+                <p>Structured references with tables</p>
+            </div>
+            <div class="formula-card">
+                <div class="formula-syntax">=INDEX(Prices,MATCH(Product,Products,0))</div>
+                <p>Named ranges in lookups</p>
+            </div>
+        </div>
+        <div class="exercise">
+            <strong>Exercise 13:</strong> Implement named ranges:
+            <ol>
+                <li>Create static named ranges for key data</li>
+                <li>Build dynamic named ranges that expand</li>
+                <li>Use named ranges in formulas</li>
+                <li>Create a dropdown that uses a dynamic named range</li>
+                <li>Build a formula that references names across sheets</li>
+            </ol>
+        </div>
+        <div class="nav-buttons">
+            <a href="#day12" class="btn btn-secondary">← Previous: Day 12</a>
+            <a href="#day14" class="btn">Next: Day 14 →</a>
+        </div>
+    </div>
+    <div class="day-container" id="day14">
+        <h2>Day 14: Error Handling</h2>
+        <h3>Common Excel Errors</h3>
+        <table class="formula-table">
+            <tr>
+                <th>Error</th>
+                <th>Meaning</th>
+                <th>Common Cause</th>
+            </tr>
+            <tr>
+                <td>#N/A</td>
+                <td>Not available</td>
+                <td>Lookup value not found</td>
+            </tr>
+            <tr>
+                <td>#VALUE!</td>
+                <td>Wrong data type</td>
+                <td>Text in math operation</td>
+            </tr>
+            <tr>
+                <td>#REF!</td>
+                <td>Invalid reference</td>
+                <td>Deleted cell reference</td>
+            </tr>
+            <tr>
+                <td>#DIV/0!</td>
+                <td>Divide by zero</td>
+                <td>Empty denominator</td>
+            </tr>
+            <tr>
+                <td>#NAME?</td>
+                <td>Unrecognized text</td>
+                <td>Misspelled function</td>
+            </tr>
+        </table>
+        <h3>Error Handling Functions</h3>
+        <div class="formula-grid">
+            <div class="formula-card">
+                <div class="formula-syntax">=IFERROR(value,value_if_error)</div>
+                <p>Returns alternate value if error</p>
+            </div>
+            <div class="formula-card">
+                <div class="formula-syntax">=IFNA(value,value_if_na)</div>
+                <p>Handles only #N/A errors</p>
+            </div>
+            <div class="formula-card">
+                <div class="formula-syntax">=ISERROR(value)</div>
+                <p>TRUE if any error</p>
+            </div>
+            <div class="formula-card">
+                <div class="formula-syntax">=ISERR(value)</div>
+                <p>TRUE for errors except #N/A</p>
+            </div>
+            <div class="formula-card">
+                <div class="formula-syntax">=AGGREGATE(function_num,options,array)</div>
+                <p>Ignores errors in calculations</p>
+            </div>
+        </div>
+        <div class="exercise">
+            <strong>Exercise 14:</strong> Build error-resistant formulas:
+            <ol>
+                <li>Protect division operations from #DIV/0!</li>
+                <li>Handle #N/A in VLOOKUPs gracefully</li>
+                <li>Create summary formulas that ignore errors</li>
+                <li>Build a data validation system that prevents errors</li>
+                <li>Use conditional formatting to highlight errors</li>
+            </ol>
+        </div>
+        <div class="nav-buttons">
+            <a href="#day13" class="btn btn-secondary">← Previous: Day 13</a>
+            <a href="#day15" class="btn">Next: Day 15 →</a>
+        </div>
+    </div>
+    <div class="day-container" id="day15">
+        <h2>Day 15: Text Manipulation Functions</h2>
+        <h3>Essential Text Functions</h3>
+        <table class="formula-table">
+            <tr>
+                <th>Function</th>
+                <th>Syntax</th>
+                <th>Example</th>
+                <th>Result</th>
+            </tr>
+            <tr>
+                <td>CONCAT</td>
+                <td>=CONCAT(text1,text2)</td>
+                <td>=CONCAT("A","B")</td>
+                <td>AB</td>
+            </tr>
+            <tr>
+                <td>TEXTJOIN</td>
+                <td>=TEXTJOIN(delimiter,ignore_empty,text1,...)</td>
+                <td>=TEXTJOIN(",",TRUE,A1:A5)</td>
+                <td>A,B,C</td>
+            </tr>
+            <tr>
+                <td>FIND</td>
+                <td>=FIND(find_text,within_text)</td>
+                <td>=FIND("e","Excel")</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>SEARCH</td>
+                <td>=SEARCH(find_text,within_text)</td>
+                <td>=SEARCH("e","Excel")</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>SUBSTITUTE</td>
+                <td>=SUBSTITUTE(text,old,new,[instance])</td>
+                <td>=SUBSTITUTE("Text","e","a")</td>
+                <td>Taxt</td>
+            </tr>
+            <tr>
+                <td>REPLACE</td>
+                <td>=REPLACE(old,start,num,new)</td>
+                <td>=REPLACE("12345",3,2,"abc")</td>
+                <td>12abc5</td>
+            </tr>
+        </table>
+        <h3>Text Formulas for Data Cleaning</h3>
+        <div class="formula-grid">
+            <div class="formula-card">
+                <div class="formula-syntax">=PROPER(TRIM(A1))</div>
+                <p>Clean and format text</p>
+            </div>
+            <div class="formula-card">
+                <div class="formula-syntax">=CONCATENATE(LEFT(A1,FIND("@",A1)-1),"@domain.com")</div>
+                <p>Standardize email addresses</p>
+            </div>
+            <div class="formula-card">
+                <div class="formula-syntax">=TRIM(RIGHT(SUBSTITUTE(A1," ",REPT(" ",LEN(A1))),LEN(A1)))</div>
+                <p>Extract last word</p>
+            </div>
+            <div class="formula-card">
+                <div class="formula-syntax">=TEXTBEFORE(A1,"-")</div>
+                <p>Extract text before delimiter (Excel 365)</p>
+            </div>
+            <div class="formula-card">
+                <div class="formula-syntax">=TEXTAFTER(A1,"-")</div>
+                <p>Extract text after delimiter (Excel 365)</p>
+            </div>
+        </div>
+        <div class="exercise">
+            <strong>Exercise 15:</strong> Clean a messy dataset:
+            <ol>
+                <li>Remove extra spaces and standardize case for all names.</li>
+                <li>Extract first and last names into separate columns.</li>
+                <li>Standardize product IDs by removing a specific prefix.</li>
+                <li>Use formulas to combine data from multiple cells into one.</li>
+                <li>Convert a list of numbers formatted as text to actual numbers.</li>
+            </ol>
+        </div>
+        <div class="nav-buttons">
+            <a href="#day14" class="btn btn-secondary">← Previous: Day 14</a>
+            <a href="#day16" class="btn">Next: Day 16 →</a>
+        </div>
+    </div>
+    <div class="day-container" id="day16">
+        <h2>Day 16: VLOOKUP & HLOOKUP</h2>
+        <h3>VLOOKUP Fundamentals</h3>
+        <div class="formula">
+            <strong>Syntax:</strong> =VLOOKUP(lookup_value, table_array, col_index_num, [range_lookup])
+        </div>
+        <div class="tip">
+            <strong>Tip:</strong> Use <code>FALSE</code> for an exact match, which is recommended for most lookups.
+        </div>
+        <h3>HLOOKUP Fundamentals</h3>
+        <div class="formula">
+            <strong>Syntax:</strong> =HLOOKUP(lookup_value, table_array, row_index_num, [range_lookup])
+        </div>
+        <div class="warning">
+            <strong>Warning:</strong> VLOOKUP/HLOOKUP are often replaced by INDEX/MATCH or XLOOKUP for greater flexibility.
+        </div>
+        <div class="exercise">
+            <strong>Exercise 16:</strong> Use VLOOKUP/HLOOKUP to find data:
+            <ol>
+                <li>Use VLOOKUP to find product price from a product ID.</li>
+                <li>Use HLOOKUP to find sales numbers for a specific quarter.</li>
+                <li>Wrap the VLOOKUP in IFERROR to handle products not found.</li>
+                <li>Discuss the limitations of VLOOKUP (e.g., must lookup to the right).</li>
+            </ol>
+        </div>
+        <div class="nav-buttons">
+            <a href="#day15" class="btn btn-secondary">← Previous: Day 15</a>
+            <a href="#day17" class="btn">Next: Day 17 →</a>
+        </div>
+    </div>
+    <div class="day-container" id="day17">
+        <h2>Day 17: INDEX & MATCH</h2>
+        <h3>INDEX Function</h3>
+        <div class="formula">
+            <strong>Syntax:</strong> =INDEX(array, row_num, [col_num])
+        </div>
+        <p>Returns the value at a specific position in a range or array.</p>
+        <h3>MATCH Function</h3>
+        <div class="formula">
+            <strong>Syntax:</strong> =MATCH(lookup_value, lookup_array, [match_type])
+        </div>
+        <p>Returns the position of a value within a range.</p>
+        <div class="tip">
+            <strong>Tip:</strong> The combination of INDEX and MATCH is more flexible than VLOOKUP as it can look left and doesn't require a column number.
+        </div>
+        <div class="exercise">
+            <strong>Exercise 17:</strong> Master INDEX/MATCH:
+            <ol>
+                <li>Use INDEX/MATCH to find an employee's salary from their name, where the name is not the first column.</li>
+                <li>Build a two-way lookup using INDEX with two MATCH functions (e.g., find sales for a specific product in a specific month).</li>
+                <li>Use IFERROR to handle cases where a value is not found.</li>
+            </ol>
+        </div>
+        <div class="nav-buttons">
+            <a href="#day16" class="btn btn-secondary">← Previous: Day 16</a>
+            <a href="#day18" class="btn">Next: Day 18 →</a>
+        </div>
+    </div>
+    <div class="day-container" id="day18">
+        <h2>Day 18: XLOOKUP (Excel 365)</h2>
+        <h3>XLOOKUP Fundamentals</h3>
+        <div class="formula">
+            <strong>Syntax:</strong> =XLOOKUP(lookup_value, lookup_array, return_array, [if_not_found], [match_mode], [search_mode])
+        </div>
+        <p>XLOOKUP is a modern, flexible replacement for VLOOKUP and HLOOKUP.</p>
+        <h3>Key Features</h3>
+        <ul>
+            <li><strong>Looks Left/Right:</strong> Can return values from any column.</li>
+            <li><strong>Built-in Error Handling:</strong> The <code>if_not_found</code> argument handles errors gracefully.</li>
+            <li><strong>Wildcard Matching:</strong> Can perform partial lookups.</li>
+            <li><strong>Search Modes:</strong> Search from first to last, last to first, or binary search.</li>
+        </ul>
+        <div class="exercise">
+            <strong>Exercise 18:</strong> Recreate previous lookups with XLOOKUP:
+            <ol>
+                <li>Repeat a VLOOKUP exercise using XLOOKUP.</li>
+                <li>Repeat an INDEX/MATCH exercise using XLOOKUP.</li>
+                <li>Use the <code>if_not_found</code> argument to return "Not Found" for missing values.</li>
+                <li>Use a wildcard search to find partial product names.</li>
+            </ol>
+        </div>
+        <div class="nav-buttons">
+            <a href="#day17" class="btn btn-secondary">← Previous: Day 17</a>
+            <a href="#day19" class="btn">Next: Day 19 →</a>
+        </div>
+    </div>
+    <div class="day-container" id="day19">
+        <h2>Day 19: SUMIF & SUMIFS</h2>
+        <h3>SUMIF Fundamentals</h3>
+        <div class="formula">
+            <strong>Syntax:</strong> =SUMIF(range, criteria, [sum_range])
+        </div>
+        <p>Sums cells that meet a single condition.</p>
+        <h3>SUMIFS Fundamentals</h3>
+        <div class="formula">
+            <strong>Syntax:</strong> =SUMIFS(sum_range, criteria_range1, criteria1, [criteria_range2], [criteria2], ...)
+        </div>
+        <p>Sums cells that meet multiple conditions.</p>
+        <div class="exercise">
+            <strong>Exercise 19:</strong> Use SUMIF/SUMIFS for conditional aggregation:
+            <ol>
+                <li>Calculate total sales for a specific product using SUMIF.</li>
+                <li>Calculate total sales for a specific product AND a specific region using SUMIFS.</li>
+                <li>Use wildcards with SUMIF to sum sales for all products starting with "A".</li>
+                <li>Use date criteria to sum sales within a date range.</li>
+            </ol>
+        </div>
+        <div class="nav-buttons">
+            <a href="#day18" class="btn btn-secondary">← Previous: Day 18</a>
+            <a href="#day20" class="btn">Next: Day 20 →</a>
+        </div>
+    </div>
+    <div class="day-container" id="day20">
+        <h2>Day 20: COUNTIF & COUNTIFS</h2>
+        <h3>COUNTIF Fundamentals</h3>
+        <div class="formula">
+            <strong>Syntax:</strong> =COUNTIF(range, criteria)
+        </div>
+        <p>Counts cells that meet a single condition.</p>
+        <h3>COUNTIFS Fundamentals</h3>
+        <div class="formula">
+            <strong>Syntax:</strong> =COUNTIFS(criteria_range1, criteria1, [criteria_range2], [criteria2], ...)
+        </div>
+        <p>Counts cells that meet multiple conditions.</p>
+        <div class="exercise">
+            <strong>Exercise 20:</strong> Use COUNTIF/COUNTIFS for conditional counting:
+            <ol>
+                <li>Count how many employees are in the "Sales" department.</li>
+                <li>Count how many products have sales over $1000 and are in a specific category.</li>
+                <li>Count blank and non-blank cells in a range.</li>
+                <li>Count how many orders were placed by a specific customer in a date range.</li>
+            </ol>
+        </div>
+        <div class="nav-buttons">
+            <a href="#day19" class="btn btn-secondary">← Previous: Day 19</a>
+            <a href="#day21" class="btn">Next: Day 21 →</a>
+        </div>
+    </div>
+    
+    <div class="day-container" id="day21">
+        <h2>Day 21: Financial Functions</h2>
+        <h3>Common Financial Functions</h3>
+        <table class="formula-table">
+            <tr>
+                <th>Function</th>
+                <th>Syntax</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>PMT</td>
+                <td>=PMT(rate, nper, pv, [fv], [type])</td>
+                <td>Calculates the payment for a loan based on constant payments and a constant interest rate.</td>
+            </tr>
+            <tr>
+                <td>PV</td>
+                <td>=PV(rate, nper, pmt, [fv], [type])</td>
+                <td>Calculates the present value of a loan or an investment.</td>
+            </tr>
+            <tr>
+                <td>FV</td>
+                <td>=FV(rate, nper, pmt, [pv], [type])</td>
+                <td>Calculates the future value of an investment.</td>
+            </tr>
+            <tr>
+                <td>RATE</td>
+                <td>=RATE(nper, pmt, pv, [fv], [type], [guess])</td>
+                <td>Returns the interest rate per period of a loan or investment.</td>
+            </tr>
+            <tr>
+                <td>NPER</td>
+                <td>=NPER(rate, pmt, pv, [fv], [type])</td>
+                <td>Returns the number of periods for an investment.</td>
+            </tr>
+        </table>
+        
+        <h3>Advanced Financial Analysis</h3>
+        <div class="formula-grid">
+            <div class="formula-card">
+                <div class="formula-syntax">=NPV(rate, value1, [value2], ...)</div>
+                <p>Net present value of an investment using a discount rate.</p>
+            </div>
+            <div class="formula-card">
+                <div class="formula-syntax">=IRR(values, [guess])</div>
+                <p>Internal rate of return for a series of cash flows.</p>
+            </div>
+            <div class="formula-card">
+                <div class="formula-syntax">=SLN(cost, salvage, life)</div>
+                <p>Straight-line depreciation of an asset.</p>
+            </div>
+        </div>
+        
+        <div class="exercise">
+            <strong>Exercise 21:</strong> Solve financial problems:
+            <ol>
+                <li>Calculate the monthly payment for a car loan.</li>
+                <li>Determine the future value of a savings plan.</li>
+                <li>Find the net present value of a business project.</li>
+                <li>Create a loan amortization schedule.</li>
+            </ol>
+        </div>
+        
+        <div class="nav-buttons">
+            <a href="#day20" class="btn btn-secondary">← Previous: Day 20</a>
+            <a href="#day22" class="btn">Next: Day 22 →</a>
+        </div>
+    </div>
+    
+    <div class="day-container" id="day22">
+        <h2>Day 22: Array Formulas (CTRL+SHIFT+ENTER)</h2>
+        <h3>Array Formula Fundamentals</h3>
+        <p>Array formulas perform multiple calculations on one or more sets of values and then return either a single result or multiple results. They are entered by pressing <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd>.</p>
+        
+        <h3>Examples of Single-Cell Array Formulas</h3>
+        <div class="formula">
+            <strong>Sum of Products:</strong> <code>={SUM(B2:B10*C2:C10)}</code>
+            <p>Multiplies corresponding values in two ranges and then sums the results.</p>
+        </div>
+        
+        <div class="formula">
+            <strong>Conditional Count:</strong> <code>={SUM(IF(B2:B10="Sales",1,0))}</code>
+            <p>Counts cells that meet a specific condition (equivalent to COUNTIF).</p>
+        </div>
+        
+        <h3>Examples of Multi-Cell Array Formulas</h3>
+        <div class="formula">
+            <strong>Transpose:</strong> <code>={TRANSPOSE(A1:A5)}</code>
+            <p>Converts a vertical range into a horizontal range.</p>
+        </div>
+        
+        <div class="formula">
+            <strong>List Unique Values:</strong> <code>={IFERROR(INDEX($A$2:$A$10, MATCH(0, COUNTIF($B$1:B1, $A$2:$A$10), 0)),"")}</code>
+            <p>Extracts a unique list of values from a range.</p>
+        </div>
+        
+        <div class="tip">
+            <strong>Tip:</strong> In newer versions of Excel, many array functions no longer require CSE (e.g., FILTER, UNIQUE, SORT).
+        </div>
+        
+        <div class="nav-buttons">
+            <a href="#day21" class="btn btn-secondary">← Previous: Day 21</a>
+            <a href="#day23" class="btn">Next: Day 23 →</a>
+        </div>
+    </div>
+    
+    <div class="day-container" id="day23">
+        <h2>Day 23: Dynamic Array Formulas (Excel 365)</h2>
+        <h3>Key Dynamic Array Functions</h3>
+        <table class="formula-table">
+            <tr>
+                <th>Function</th>
+                <th>Syntax</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td><code>FILTER</code></td>
+                <td>=FILTER(array, include, [if_empty])</td>
+                <td>Filters a range based on a condition.</td>
+            </tr>
+            <tr>
+                <td><code>UNIQUE</code></td>
+                <td>=UNIQUE(array, [by_col], [exactly_once])</td>
+                <td>Returns a list of unique values.</td>
+            </tr>
+            <tr>
+                <td><code>SORT</code></td>
+                <td>=SORT(array, [sort_index], [sort_order], [by_col])</td>
+                <td>Sorts a range by columns or rows.</td>
+            </tr>
+            <tr>
+                <td><code>SORTBY</code></td>
+                <td>=SORTBY(array, by_array, [sort_order], ...)</td>
+                <td>Sorts a range based on the values in a separate range.</td>
+            </tr>
+            <tr>
+                <td><code>RANDARRAY</code></td>
+                <td>=RANDARRAY([rows], [columns], [min], [max], [integers])</td>
+                <td>Generates a random array of numbers.</td>
+            </tr>
+        </table>
+        
+        <div class="tip">
+            <strong>Tip:</strong> Dynamic arrays "spill" into adjacent cells. The result is a single formula in the top-left cell.
+        </div>
+        
+        <div class="exercise">
+            <strong>Exercise 23:</strong> Practice dynamic arrays:
+            <ol>
+                <li>Use <code>UNIQUE</code> to get a list of unique products sold.</li>
+                <li>Use <code>FILTER</code> to show only sales data for the "East" region.</li>
+                <li>Combine <code>SORT</code> and <code>FILTER</code> to show the top 5 highest-performing salespersons.</li>
+                <li>Create a random sample of 10 customer records using <code>RANDARRAY</code> and <code>INDEX</code>.</li>
+            </ol>
+        </div>
+        
+        <div class="nav-buttons">
+            <a href="#day22" class="btn btn-secondary">← Previous: Day 22</a>
+            <a href="#day24" class="btn">Next: Day 24 →</a>
+        </div>
+    </div>
+    
+    <div class="day-container" id="day24">
+        <h2>Day 24: What-If Analysis (Goal Seek, Scenario Manager, Data Tables)</h2>
+        <h3>Goal Seek</h3>
+        <p>Goal Seek determines what input value is needed to reach a desired output value.</p>
+        <div class="formula">
+            <strong>How to:</strong> Data tab → What-If Analysis → Goal Seek...
+        </div>
+        <div class="exercise">
+            <strong>Exercise:</strong> Find the loan interest rate needed to achieve a specific monthly payment.
+        </div>
+        
+        <h3>Scenario Manager</h3>
+        <p>Scenario Manager allows you to create and save different input groups (scenarios) and then switch between them to see how different outcomes are affected.</p>
+        <div class="formula">
+            <strong>How to:</strong> Data tab → What-If Analysis → Scenario Manager...
+        </div>
+        <div class="exercise">
+            <strong>Exercise:</strong> Create "Best Case," "Worst Case," and "Most Likely" scenarios for a sales forecast based on changes to price and volume assumptions.
+        </div>
+        
+        <h3>Data Tables</h3>
+        <p>Data Tables show how changing one or two variables affects a single formula. They are a powerful way to perform sensitivity analysis.</p>
+        <div class="formula">
+            <strong>How to:</strong> Data tab → What-If Analysis → Data Table...
+        </div>
+        <div class="exercise">
+            <strong>Exercise:</strong> Create a one-variable data table to see how a loan's monthly payment changes based on different interest rates.
+        </div>
+        
+        <div class="nav-buttons">
+            <a href="#day23" class="btn btn-secondary">← Previous: Day 23</a>
+            <a href="#day25" class="btn">Next: Day 25 →</a>
+        </div>
+    </div>
+    
+    <div class="day-container" id="day25">
+        <h2>Day 25: PivotTables - The Basics</h2>
+        <h3>What is a PivotTable?</h3>
+        <p>A PivotTable is a powerful tool for summarizing, analyzing, exploring, and presenting data. It allows you to quickly transform rows into columns and vice-versa, and perform calculations on the data.</p>
+        
+        <h3>Creating a PivotTable</h3>
+        <div class="formula">
+            <strong>How to:</strong> Select your data → Insert tab → PivotTable
+        </div>
+        
+        <h3>PivotTable Anatomy</h3>
+        <p>The four main areas of a PivotTable:</p>
+        <ul>
+            <li><strong>Filters:</strong> Filter the entire PivotTable by one or more fields.</li>
+            <li><strong>Columns:</strong> Display data horizontally.</li>
+            <li><strong>Rows:</strong> Display data vertically.</li>
+            <li><strong>Values:</strong> The data that is aggregated (sum, count, average, etc.).</li>
+        </ul>
+        
+        <div class="exercise">
+            <strong>Exercise 25:</strong> Build your first PivotTable:
+            <ol>
+                <li>Create a PivotTable from a sales dataset.</li>
+                <li>Summarize total sales by region and product category.</li>
+                <li>Filter the data to show only sales for a specific year.</li>
+                <li>Change the value field from Sum to Average.</li>
+            </ol>
+        </div>
+        
+        <div class="nav-buttons">
+            <a href="#day24" class="btn btn-secondary">← Previous: Day 24</a>
+            <a href="#day26" class="btn">Next: Day 26 →</a>
+        </div>
+    </div>
+    
+    <div class="day-container" id="day26">
+        <h2>Day 26: PivotTables - Grouping & Slicers</h2>
+        <h3>Grouping Data</h3>
+        <p>Group dates, numbers, or text to create new levels of analysis.</p>
+        <div class="formula">
+            <strong>How to:</strong> Right-click a cell in the PivotTable row/column field → Group
+        </div>
+        <div class="exercise">
+            <strong>Exercise:</strong> Group sales data by month, quarter, and year.
+        </div>
+        
+        <h3>Slicers and Timelines</h3>
+        <p>Slicers and Timelines are visual filters that allow for quick, interactive filtering of a PivotTable.</p>
+        <div class="formula">
+            <strong>How to:</strong> Analyze tab (or PivotTable Analyze) → Insert Slicer/Timeline
+        </div>
+        <div class="exercise">
+            <strong>Exercise:</strong> Add a slicer for "Region" and a timeline for "Date" to your sales PivotTable. Connect them to multiple PivotTables.
+        </div>
+        
+        <div class="nav-buttons">
+            <a href="#day25" class="btn btn-secondary">← Previous: Day 25</a>
+            <a href="#day27" class="btn">Next: Day 27 →</a>
+        </div>
+    </div>
+    
+    <div class="day-container" id="day27">
+        <h2>Day 27: Power Query - The Basics</h2>
+        <h3>What is Power Query?</h3>
+        <p>Power Query is an ETL (Extract, Transform, Load) tool built into Excel that helps you connect to data, clean it, and transform it for analysis. It allows you to automate data cleaning steps.</p>
+        
+        <h3>Connecting to Data</h3>
+        <div class="formula">
+            <strong>How to:</strong> Data tab → Get & Transform Data → From File/From Web/etc.
+        </div>
+        
+        <h3>Common Transformations</h3>
+        <ul>
+            <li>Remove rows or columns.</li>
+            <li>Change data types.</li>
+            <li>Split columns by delimiter.</li>
+            <li>Merge or append queries.</li>
+            <li>Unpivot columns.</li>
+        </ul>
+        
+        <div class="exercise">
+            <strong>Exercise 27:</strong> Clean a messy dataset with Power Query:
+            <ol>
+                <li>Import data from a CSV file.</li>
+                <li>Remove unnecessary columns.</li>
+                <li>Split a single column with "FirstName LastName" into two columns.</li>
+                <li>Fill down blank cells in a column.</li>
+                <li>Change the data type of a number column.</li>
+            </ol>
+        </div>
+        
+        <div class="nav-buttons">
+            <a href="#day26" class="btn btn-secondary">← Previous: Day 26</a>
+            <a href="#day28" class="btn">Next: Day 28 →</a>
+        </div>
+    </div>
+    
+    <div class="day-container" id="day28">
+        <h2>Day 28: Power Query - Advanced Features</h2>
+        <h3>Advanced Transformations</h3>
+        <ul>
+            <li><strong>M-Code:</strong> The underlying language of Power Query.</li>
+            <li><strong>Conditional Column:</strong> Create a new column with an IF-THEN-ELSE logic.</li>
+            <li><strong>Merge Queries:</strong> Combine data from two tables with a common key (like a VLOOKUP).</li>
+            <li><strong>Append Queries:</strong> Stack data from multiple tables on top of each other.</li>
+        </ul>
+        
+        <h3>Automating the Process</h3>
+        <p>The power of Power Query is that all your transformation steps are recorded. When the source data is updated, you can simply click "Refresh All" to re-run the entire process.</p>
+        <div class="formula">
+            <strong>How to:</strong> Data tab → Refresh All
+        </div>
+        
+        <div class="exercise">
+            <strong>Exercise 28:</strong> Automate a data cleaning task:
+            <ol>
+                <li>Connect to two different sales files (e.g., Q1 Sales and Q2 Sales).</li>
+                <li>Append the two queries into a single table.</li>
+                <li>Add a conditional column to categorize sales as "High" or "Low."</li>
+                <li>Merge this data with a separate table containing product details.</li>
+                <li>Save the combined query and refresh it after changing the source data.</li>
+            </ol>
+        </div>
+        
+        <div class="nav-buttons">
+            <a href="#day27" class="btn btn-secondary">← Previous: Day 27</a>
+            <a href="#day29" class="btn">Next: Day 29 →</a>
+        </div>
+    </div>
+    
+    <div class="day-container" id="day29">
+        <h2>Day 29: Introduction to Macros & VBA</h2>
+        <h3>What is a Macro?</h3>
+        <p>A macro is a series of commands and functions that are stored in a Microsoft Visual Basic for Applications (VBA) module and can be executed whenever you need to perform the task.</p>
+        
+        <h3>Recording a Macro</h3>
+        <div class="formula">
+            <strong>How to:</strong> Developer tab → Record Macro
+        </div>
+        <div class="warning">
+            <strong>Warning:</strong> The macro recorder captures every single click and action, so it's best for simple, repetitive tasks.
+        </div>
+        
+        <h3>The Visual Basic Editor (VBE)</h3>
+        <div class="formula">
+            <strong>How to:</strong> Developer tab → Visual Basic (<kbd>Alt</kbd>+<kbd>F11</kbd>)
+        </div>
+        <p>The VBE is where you can view, edit, or write VBA code from scratch.</p>
+        
+        <div class="exercise">
+            <strong>Exercise 29:</strong> Record and run a macro:
+            <ol>
+                <li>Enable the Developer tab.</li>
+                <li>Record a macro to format a report (e.g., bold headers, format numbers).</li>
+                <li>View the recorded code in the VBE.</li>
+                <li>Assign the macro to a button or keyboard shortcut.</li>
+            </ol>
+        </div>
+        
+        <div class="nav-buttons">
+            <a href="#day28" class="btn btn-secondary">← Previous: Day 28</a>
+            <a href="#day30" class="btn">Next: Day 30 →</a>
+        </div>
+    </div>
+    
+    <div class="day-container" id="day30">
+        <h2>Day 30: Basic VBA Programming</h2>
+        <h3>VBA Syntax Fundamentals</h3>
+        <div class="formula">
+            <strong>Variables:</strong> <code>Dim myVariable As String</code>
+        </div>
+        <div class="formula">
+            <strong>Loops:</strong> <code>For i = 1 to 10...Next i</code>
+        </div>
+        <div class="formula">
+            <strong>Conditional Statements:</strong> <code>If x > 10 Then...End If</code>
+        </div>
+        
+        <h3>Common VBA Objects</h3>
+        <table class="formula-table">
+            <tr>
+                <th>Object</th>
+                <th>Example</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td><code>Range</code></td>
+                <td><code>Range("A1").Value = "Hello"</code></td>
+                <td>A single cell or a range of cells.</td>
+            </tr>
+            <tr>
+                <td><code>Worksheet</code></td>
+                <td><code>Sheets("Sheet1").Activate</code></td>
+                <td>A single worksheet.</td>
+            </tr>
+            <tr>
+                <td><code>Workbook</code></td>
+                <td><code>ThisWorkbook.Save</code></td>
+                <td>The entire Excel file.</td>
+            </tr>
+        </table>
+        
+        <div class="exercise">
+            <strong>Exercise 30:</strong> Write a simple VBA script:
+            <ol>
+                <li>Write a script that clears the content of a specific range.</li>
+                <li>Write a script that creates a new worksheet and renames it.</li>
+                <li>Write a script that loops through a column and formats any cell that contains a negative number.</li>
+            </ol>
+        </div>
+        
+        <div class="nav-buttons">
+            <a href="#day29" class="btn btn-secondary">← Previous: Day 29</a>
+            <a href="#day31" class="btn">Next: Day 31 →</a>
+        </div>
+    </div>
+    
+    <div class="day-container" id="day31">
+        <h2>Day 31: Data Analysis with Statistical Tools</h2>
+        <h3>The Analysis ToolPak</h3>
+        <p>The Analysis ToolPak is an Excel add-in that provides a wide range of statistical functions for data analysis.</p>
+        <div class="formula">
+            <strong>How to:</strong> File → Options → Add-ins → Go... → Check "Analysis ToolPak"
+        </div>
+        
+        <h3>Key Statistical Tools</h3>
+        <table class="formula-table">
+            <tr>
+                <th>Tool</th>
+                <th>Purpose</th>
+            </tr>
+            <tr>
+                <td>Descriptive Statistics</td>
+                <td>Provides a summary of the data (mean, median, mode, standard deviation, etc.).</td>
+            </tr>
+            <tr>
+                <td>ANOVA</td>
+                <td>Analysis of Variance to test for differences between group means.</td>
+            </tr>
+            <tr>
+                <td>Regression</td>
+                <td>Finds the relationship between a dependent variable and one or more independent variables.</td>
+            </tr>
+            <tr>
+                <td>t-Test</td>
+                <td>Determines if two sets of data are significantly different from each other.</td>
+            </tr>
+        </table>
+        
+        <div class="exercise">
+            <strong>Exercise 31:</strong> Use the Analysis ToolPak:
+            <ol>
+                <li>Run Descriptive Statistics on a dataset to get a quick summary.</li>
+                <li>Perform a regression analysis to predict sales based on advertising spend.</li>
+                <li>Conduct a t-Test to compare the performance of two different sales teams.</li>
+            </ol>
+        </div>
+        
+        <div class="nav-buttons">
+            <a href="#day30" class="btn btn-secondary">← Previous: Day 30</a>
+            <a href="#day32" class="btn">Next: Day 32 →</a>
+        </div>
+    </div>
+    
+    <div class="day-container" id="day32">
+        <h2>Day 32: Data Visualization with Advanced Charts</h2>
+        <h3>Beyond the Basics</h3>
+        <p>Go beyond standard charts with more advanced visualization techniques.</p>
+        <table class="formula-table">
+            <tr>
+                <th>Chart Type</th>
+                <th>Purpose</th>
+            </tr>
+            <tr>
+                <td>Combo Chart</td>
+                <td>Combines two chart types (e.g., a bar chart with a line chart). Useful for showing different types of data on one graph.</td>
+            </tr>
+            <tr>
+                <td>Waterfall Chart</td>
+                <td>Shows how a starting value is increased and decreased by a series of positive and negative values to reach a final value.</td>
+            </tr>
+            <tr>
+                <td>Funnel Chart</td>
+                <td>Shows the stages of a process and the number of items at each stage.</td>
+            </tr>
+            <tr>
+                <td>Gauge Chart (Doughnut/Pie)</td>
+                <td>Used to display a single value in the form of a speedometer or gauge.</td>
+            </tr>
+        </table>
+        
+        <h3>Formatting for Impact</h3>
+        <p>Tips for creating professional and impactful charts:</p>
+        <ul>
+            <li>Use clean, consistent color palettes.</li>
+            <li>Remove unnecessary elements like gridlines.</li>
+            <li>Use clear and concise titles and axis labels.</li>
+            <li>Use data labels to highlight key points.</li>
+        </ul>
+        
+        <div class="exercise">
+            <strong>Exercise 32:</strong> Create advanced charts:
+            <ol>
+                <li>Build a Combo chart to show sales and profit margin on the same graph.</li>
+                <li>Create a Waterfall chart to analyze profit and loss statements.</li>
+                <li>Construct a Funnel chart to visualize the sales pipeline.</li>
+            </ol>
+        </div>
+        
+        <div class="nav-buttons">
+            <a href="#day31" class="btn btn-secondary">← Previous: Day 31</a>
+            <a href="#day33" class="btn">Next: Day 33 →</a>
+        </div>
+    </div>
+    
+    <div class="day-container" id="day33">
+        <h2>Day 33: Dashboard Design Principles</h2>
+        <h3>What Makes a Great Dashboard?</h3>
+        <ul>
+            <li><strong>Clarity:</strong> The message is clear and easy to understand at a glance.</li>
+            <li><strong>Relevance:</strong> It contains only the most important and relevant information.</li>
+            <li><strong>Simplicity:</strong> It is not cluttered with unnecessary visuals or data.</li>
+            <li><strong>Interactivity:</strong> Users can filter and interact with the data to get different views.</li>
+        </ul>
+        
+        <h3>The Dashboard Creation Process</h3>
+        <ol>
+            <li><strong>Define the Goal:</strong> What questions should the dashboard answer?</li>
+            <li><strong>Gather the Data:</strong> Clean and prepare all necessary data sources.</li>
+            <li><strong>Choose the Right Visuals:</strong> Select charts and tables that best tell the story.</li>
+            <li><strong>Arrange the Layout:</strong> Organize visuals logically, with the most important information at the top-left.</li>
+            <li><strong>Add Interactivity:</strong> Use Slicers, Timelines, and macros to allow users to interact with the data.</li>
+        </ol>
+        
+        <div class="exercise">
+            <strong>Exercise 33:</strong> Plan and design a dashboard:
+            <ol>
+                <li>Sketch out a dashboard layout on paper.</li>
+                <li>Create a set of KPIs (Key Performance Indicators) to track.</li>
+                <li>Design a mock dashboard with dummy data and placeholder visuals.</li>
+                <li>Get feedback on your design before building it.</li>
+            </ol>
+        </div>
+        
+        <div class="nav-buttons">
+            <a href="#day32" class="btn btn-secondary">← Previous: Day 32</a>
+            <a href="#day34" class="btn">Next: Day 34 →</a>
+        </div>
+    </div>
+    
+    <div class="day-container" id="day34">
+        <h2>Day 34: Power Pivot - Data Modeling</h2>
+        <h3>What is Power Pivot?</h3>
+        <p>Power Pivot is a data modeling technology that lets you create sophisticated data models, establish relationships, and work with large datasets in Excel.</p>
+        
+        <h3>Creating a Data Model</h3>
+        <div class="formula">
+            <strong>How to:</strong> Power Pivot tab → Manage
+        </div>
+        
+        <h3>Establishing Relationships</h3>
+        <p>Relationships link tables together on a common column (e.g., "ProductID"). This allows you to use data from multiple tables in a single PivotTable.</p>
+        <div class="formula">
+            <strong>How to:</strong> Diagram View in Power Pivot window → Drag and drop to create relationships
+        </div>
+        
+        <div class="warning">
+            <strong>Warning:</strong> Ensure your relationship is between a column with unique values (the "one" side) and a column with duplicates (the "many" side).
+        </div>
+        
+        <div class="exercise">
+            <strong>Exercise 34:</strong> Build a data model:
+            <ol>
+                <li>Import a sales table, a products table, and a customers table into Power Pivot.</li>
+                <li>Create relationships between the tables.</li>
+                <li>Use the data model to create a PivotTable that analyzes sales by customer region and product category.</li>
+            </ol>
+        </div>
+        
+        <div class="nav-buttons">
+            <a href="#day33" class="btn btn-secondary">← Previous: Day 33</a>
+            <a href="#day35" class="btn">Next: Day 35 →</a>
+        </div>
+    </div>
+    
+    <div class="day-container" id="day35">
+        <h2>Day 35: DAX - Calculated Columns & Measures</h2>
+        <h3>DAX Fundamentals</h3>
+        <p>DAX (Data Analysis Expressions) is the formula language used in Power Pivot and Power BI. It is similar to Excel formulas but more powerful for data modeling.</p>
+        
+        <h3>Calculated Columns</h3>
+        <p>A calculated column is a new column added to a table in the data model. Its values are calculated row-by-row.</p>
+        <div class="formula">
+            <strong>Example:</strong> <code>'Sales'[Profit] = [Sales] - [Cost]</code>
+        </div>
+        
+        <h3>Measures</h3>
+        <p>A measure is a dynamic calculation that is not stored in the data model. It is calculated on-the-fly based on the context of the PivotTable.</p>
+        <div class="formula">
+            <strong>Example:</strong> <code>Total Sales = SUM('Sales'[SalesAmount])</code>
+        </div>
+        
+        <div class="tip">
+            <strong>Tip:</strong> Always use Measures for aggregations and Calculated Columns only when necessary for row-level calculations.
+        </div>
+        
+        <div class="exercise">
+            <strong>Exercise 35:</strong> Create DAX formulas:
+            <ol>
+                <li>Create a calculated column for "Total Price" from "Unit Price" and "Quantity".</li>
+                <li>Create a measure for "Average Sales".</li>
+                <li>Create a measure for "Number of Orders" using <code>COUNTROWS</code>.</li>
+            </ol>
+        </div>
+        
+        <div class="nav-buttons">
+            <a href="#day34" class="btn btn-secondary">← Previous: Day 34</a>
+            <a href="#day36" class="btn">Next: Day 36 →</a>
+        </div>
+    </div>
+    
+    <div class="day-container" id="day36">
+        <h2>Day 36: DAX - The CALCULATE Function</h2>
+        <h3>CALCULATE: The Heart of DAX</h3>
+        <p>The <code>CALCULATE</code> function is the most important and powerful function in DAX. It modifies the filter context of a measure's calculation.</p>
+        <div class="formula">
+            <strong>Syntax:</strong> <code>CALCULATE(<expression>, <filter1>, <filter2>, ...)</code>
+        </div>
+        
+        <h3>Example: Sales for a specific product</h3>
+        <div class="formula">
+            <code>=CALCULATE([Total Sales], 'Products'[Product Name]="Laptop")</code>
+        </div>
+        <p>This formula calculates the total sales, but only for the rows where the product name is "Laptop".</p>
+        
+        <h3>Example: Sales from the previous year</h3>
+        <div class="formula">
+            <code>=CALCULATE([Total Sales], SAMEPERIODLASTYEAR('Dates'[Date]))</code>
+        </div>
+        <p>This formula calculates sales but shifts the date context to the same period in the previous year.</p>
+        
+        <div class="exercise">
+            <strong>Exercise 36:</strong> Practice with <code>CALCULATE</code>:
+            <ol>
+                <li>Create a measure to calculate sales for a specific region.</li>
+                <li>Create a measure to calculate the year-over-year sales growth.</li>
+                <li>Use <code>ALL</code> within <code>CALCULATE</code> to find the percentage of a total.</li>
+            </ol>
+        </div>
+        
+        <div class="nav-buttons">
+            <a href="#day35" class="btn btn-secondary">← Previous: Day 35</a>
+            <a href="#day37" class="btn">Next: Day 37 →</a>
+        </div>
+    </div>
+    
+    <div class="day-container" id="day37">
+        <h2>Day 37: Scenario Analysis with Data Tables & Goal Seek</h2>
+        <h3>Review of Data Tables</h3>
+        <p>Data tables are a powerful way to see the results of a formula when one or two inputs change. They provide a quick-reference matrix of results.</p>
+        
+        <h3>Review of Goal Seek</h3>
+        <p>Goal Seek helps you work backward from a desired result to find the input value needed to get that result.</p>
+        
+        <h3>Advanced Applications</h3>
+        <p>Combine these tools for more complex financial modeling and what-if analysis:</p>
+        <ul>
+            <li>Model a business's break-even point by using Goal Seek on a profit formula.</li>
+            <li>Create a sensitivity table that shows how net profit is affected by changes in both price and cost.</li>
+            <li>Use scenarios to compare different investment strategies (e.g., high-risk vs. low-risk).</li>
+        </ul>
+        
+        <div class="exercise">
+            <strong>Exercise 37:</strong> Apply scenario analysis:
+            <ol>
+                <li>Build a two-variable data table to analyze profit at different price and volume levels.</li>
+                <li>Use Goal Seek to determine what sales volume is needed to achieve a profit of $50,000.</li>
+                <li>Use Scenario Manager to store and compare the results of different economic forecasts.</li>
+            </ol>
+        </div>
+        
+        <div class="nav-buttons">
+            <a href="#day36" class="btn btn-secondary">← Previous: Day 36</a>
+            <a href="#day38" class="btn">Next: Day 38 →</a>
+        </div>
+    </div>
+    
+    <div class="day-container" id="day38">
+        <h2>Day 38: PivotCharts & Advanced Slicers</h2>
+        <h3>Creating PivotCharts</h3>
+        <p>A PivotChart is a graphical representation of the data in a PivotTable. They are dynamic and update automatically when the PivotTable is changed.</p>
+        <div class="formula">
+            <strong>How to:</strong> Select a PivotTable → PivotTable Analyze tab → PivotChart
+        </div>
+        
+        <h3>Connecting Slicers to Multiple PivotTables</h3>
+        <p>You can connect a single slicer to multiple PivotTables and PivotCharts, allowing for an interactive dashboard experience.</p>
+        <div class="formula">
+            <strong>How to:</strong> Right-click a slicer → Report Connections...
+        </div>
+        
+        <h3>Advanced Chart Formatting</h3>
+        <p>Tips to make your PivotCharts look professional:</p>
+        <ul>
+            <li>Remove the field buttons for a cleaner look.</li>
+            <li>Use a consistent color scheme.</li>
+            <li>Add meaningful titles and labels.</li>
+        </ul>
+        
+        <div class="exercise">
+            <strong>Exercise 38:</strong> Build an interactive dashboard:
+            <ol>
+                <li>Create two different PivotTables from the same dataset.</li>
+                <li>Create a PivotChart for each PivotTable.</li>
+                <li>Add a slicer for "Region" and connect it to both PivotTables.</li>
+                <li>Add a timeline for "Date" and connect it to both PivotTables.</li>
+                <li>Hide the PivotTable field buttons from the charts.</li>
+            </ol>
+        </div>
+        
+        <div class="nav-buttons">
+            <a href="#day37" class="btn btn-secondary">← Previous: Day 37</a>
+            <a href="#day39" class="btn">Next: Day 39 →</a>
+        </div>
+    </div>
+    
+    <div class="day-container" id="day39">
+        <h2>Day 39: Macros for Automation</h2>
+        <h3>Review of Macros</h3>
+        <p>Macros allow you to automate repetitive tasks, saving time and reducing errors.</p>
+        
+        <h3>Creating a Custom Macro Button</h3>
+        <p>Instead of using a keyboard shortcut, you can add a button to a worksheet that runs a macro.</p>
+        <div class="formula">
+            <strong>How to:</strong> Developer tab → Insert → Form Controls → Button
+        </div>
+        
+        <h3>Automating a Reporting Task</h3>
+        <p>A typical reporting automation task might involve:</p>
+        <ol>
+            <li>Opening a source data file.</li>
+            <li>Copying the data to a new sheet.</li>
+            <li>Running a PivotTable refresh.</li>
+            <li>Printing the report as a PDF.</li>
+            <li>Saving the file and closing the source data.</li>
+        </ol>
+        
+        <div class="exercise">
+            <strong>Exercise 39:</strong> Automate a report:
+            <ol>
+                <li>Record a macro that formats a table and creates a PivotTable.</li>
+                <li>Write a small script to automatically refresh the PivotTable.</li>
+                <li>Add a button to the sheet to run the formatting and refresh macro.</li>
+            </ol>
+        </div>
+        
+        <div class="nav-buttons">
+            <a href="#day38" class="btn btn-secondary">← Previous: Day 38</a>
+            <a href="#day40" class="btn">Next: Day 40 →</a>
+        </div>
+    </div>
+
+    <div class="day-container" id="day40">
+        <h2>Day 40: Analyzing Trading Data & In-Depth DAX</h2>
+    
+        <h3>Introduction to DAX (Data Analysis Expressions)</h3>
+        <p>DAX is a formula language used in Power Pivot, Power BI, and SQL Server Analysis Services to create custom calculations in PivotTables and PivotCharts. It extends Excel's capabilities by allowing you to create measures, calculated columns, and tables.</p>
+    
+        <h3>Key DAX Concepts for Trading Data</h3>
+        <ul>
+            <li><strong>Measures:</strong> Dynamic calculations that aggregate data, such as total profit or average trade duration. They are used in the Values area of a PivotTable.</li>
+            <li><strong>Calculated Columns:</strong> Add new columns to a table, with a formula that is calculated row-by-row. For example, a "Profit/Loss" column based on entry and exit prices.</li>
+            <li><strong>Evaluation Context:</strong> DAX has two contexts that affect how formulas are calculated:
+                <ul>
+                    <li><strong>Row Context:</strong> The row-by-row calculation for a calculated column.</li>
+                    <li><strong>Filter Context:</strong> The filters applied by the PivotTable (e.g., date, stock ticker, etc.).</li>
+                </ul>
+            </li>
+        </ul>
+    
+        <h3>Analyzing Trading Data with DAX</h3>
+        <table class="formula-table">
+            <tr>
+                <th>DAX Function</th>
+                <th>Use Case for Trading</th>
+                <th>Example Formula</th>
+            </tr>
+            <tr>
+                <td><code>SUM</code>, <code>AVERAGE</code>, <code>MAX</code>, <code>MIN</code></td>
+                <td>Calculate basic metrics like total profit, average entry price, highest price reached, or lowest price hit.</td>
+                <td class="formula"><code>=SUM('Trades'[Profit])</code></td>
+            </tr>
+            <tr>
+                <td><code>CALCULATE</code></td>
+                <td>The most powerful DAX function. It modifies the filter context to perform a calculation.</td>
+                <td class="formula"><code>=CALCULATE(SUM('Trades'[Profit]), 'Trades'[Result]="Win")</code><br><em>(Calculates total profit only for winning trades)</em></td>
+            </tr>
+            <tr>
+                <td><code>FILTER</code></td>
+                <td>Returns a table filtered by a condition. Often used inside <code>CALCULATE</code>.</td>
+                <td class="formula"><code>=CALCULATE(AVERAGE('Trades'[Trade Duration]), FILTER('Trades', 'Trades'[Market]="Forex"))</code></td>
+            </tr>
+            <tr>
+                <td><code>COUNTROWS</code></td>
+                <td>Counts the number of rows in a table. Useful for counting the number of trades.</td>
+                <td class="formula"><code>=COUNTROWS('Trades')</code></td>
+            </tr>
+        </table>
+    
+        <div class="exercise">
+            <strong>Exercise: Analyze a Mock Trading Dataset</strong>
+            <ol>
+                <li>Load a sample trading dataset into Power Pivot.</li>
+                <li>Create a <strong>Calculated Column</strong> for <strong>"Duration in Days"</strong>: <code>=DATEDIF([Entry Date],[Exit Date],"D")</code>.</li>
+                <li>Create a <strong>Measure</strong> for <strong>"Total Profit/Loss"</strong>: <code>=SUM('Trades'[Profit])</code>.</li>
+                <li>Create a <strong>Measure</strong> for <strong>"Win Rate"</strong>: <code>=DIVIDE(CALCULATE(COUNTROWS('Trades'), 'Trades'[Result]="Win"), COUNTROWS('Trades'))</code>.</li>
+                <li>Create a PivotTable and analyze performance by stock ticker, month, and strategy.</li>
+            </ol>
+        </div>
+    
+        <div class="nav-buttons">
+            <a href="#day39" class="btn btn-secondary">← Previous: Day 39</a>
+            <a href="#day41" class="btn">Next: Day 41 →</a>
+        </div>
+    </div>
+    
+    <div class="day-container" id="day41">
+        <h2>Day 41: Power BI Basics & Excel Integration</h2>
+        <h3>Power BI Overview</h3>
+        <p>Power BI is a business analytics service from Microsoft that provides interactive visualizations and business intelligence capabilities with an interface simple enough for end users to create their own reports and dashboards.</p>
+        
+        <h3>Connecting Excel to Power BI</h3>
+        <p>Excel and Power BI work together seamlessly. You can import Excel data into Power BI, and you can also use Power BI to connect to an Excel data model and analyze it.</p>
+        <div class="formula">
+            <strong>How to:</strong> In Power BI Desktop → Get Data → Excel workbook
+        </div>
+        
+        <h3>Key Differences</h3>
+        <table class="formula-table">
+            <tr>
+                <th>Feature</th>
+                <th>Excel</th>
+                <th>Power BI</th>
+            </tr>
+            <tr>
+                <td>Purpose</td>
+                <td>Spreadsheet, data analysis, reporting</td>
+                <td>Business Intelligence, data visualization, sharing</td>
+            </tr>
+            <tr>
+                <td>Data Capacity</td>
+                <td>Limited (1 million rows per sheet)</td>
+                <td>Very large datasets</td>
+            </tr>
+            <tr>
+                <td>Formula Language</td>
+                <td>Excel formulas, some DAX</td>
+                <td>DAX only (for data models)</td>
+            </tr>
+            <tr>
+                <td>Sharing</td>
+                <td>Email, network drives</td>
+                <td>Power BI Service, web dashboards</td>
+            </tr>
+        </table>
+        
+        <div class="exercise">
+            <strong>Exercise 41:</strong> Excel-to-Power BI workflow:
+            <ol>
+                <li>Open Power BI Desktop.</li>
+                <li>Import the `advanceexcel.html` data model from your Excel file.</li>
+                <li>Create a simple bar chart visualizing total sales by product category.</li>
+                <li>Publish the report to the Power BI Service.</li>
+            </ol>
+        </div>
+        
+        <div class="nav-buttons">
+            <a href="#day40" class="btn btn-secondary">← Previous: Day 40</a>
+            <a href="#day42" class="btn">Next: Day 42 →</a>
+        </div>
+    </div>
+    
+    <div class="day-container" id="day42">
+        <h2>Day 42: Power BI - The Visualization Pane</h2>
+        <h3>Report View Basics</h3>
+        <p>The Report View is where you create and design your data visualizations. The primary panes are:</p>
+        <ul>
+            <li><strong>Fields:</strong> Lists all the tables and columns in your data model.</li>
+            <li><strong>Visualizations:</strong> Contains a gallery of all available chart types.</li>
+            <li><strong>Filters:</strong> Allows you to apply filters at the visual, page, or report level.</li>
+        </ul>
+        
+        <h3>Choosing the Right Visual</h3>
+        <p>Picking the right chart for your data is crucial for effective communication.</p>
+        <div class="formula-grid">
+            <div class="formula-card">
+                <div class="formula-syntax">Bar Chart</div>
+                <p>Use for comparing values across categories.</p>
+            </div>
+            <div class="formula-card">
+                <div class="formula-syntax">Line Chart</div>
+                <p>Use for showing trends over time.</p>
+            </div>
+            <div class="formula-card">
+                <div class="formula-syntax">Matrix</div>
+                <p>Use for creating tables with multiple dimensions.</p>
+            </div>
+            <div class="formula-card">
+                <div class="formula-syntax">Card</div>
+                <p>Use for displaying a single important number (a KPI).</p>
+            </div>
+        </div>
+        
+        <div class="exercise">
+            <strong>Exercise 42:</strong> Build a Power BI report page:
+            <ol>
+                <li>Create a card visual to show "Total Sales".</li>
+                <li>Create a bar chart to show "Total Sales" by "Region".</li>
+                <li>Create a line chart to show "Total Sales" over "Date".</li>
+                <li>Add a slicer to filter the page by "Product Category".</li>
+                <li>Format the visuals to match a consistent theme.</li>
+            </ol>
+        </div>
+        
+        <div class="nav-buttons">
+            <a href="#day41" class="btn btn-secondary">← Previous: Day 41</a>
+            <a href="#day43" class="btn">Next: Day 43 →</a>
+        </div>
+    </div>
+    
+    <div class="day-container" id="day43">
+        <h2>Day 43: Power BI - Creating a Dashboard</h2>
+        <h3>Reports vs. Dashboards</h3>
+        <p>In Power BI, a **Report** is a collection of pages with visuals. A **Dashboard** is a single canvas where you "pin" visuals from one or more reports. It's designed to give a high-level view of key metrics at a glance.</p>
+        
+        <h3>Pinning Visuals to a Dashboard</h3>
+        <div class="formula">
+            <strong>How to:</strong> In the Power BI Service, click the pin icon on a visual in your report.
+        </div>
+        
+        <h3>Adding Interactivity to a Dashboard</h3>
+        <p>While dashboards are less interactive than reports, you can still filter them and click on a visual to go to the underlying report page.</p>
+        
+        <div class="exercise">
+            <strong>Exercise 43:</strong> Build a dashboard in Power BI Service:
+            <ol>
+                <li>Publish a report from Power BI Desktop.</li>
+                <li>In the Power BI Service, open the report.</li>
+                <li>Pin a "Total Sales" card, a "Sales by Region" bar chart, and a "Sales Trend" line chart to a new dashboard.</li>
+                <li>Give the dashboard a title.</li>
+                <li>Share the dashboard with a colleague (in a hypothetical scenario).</li>
+            </ol>
+        </div>
+        
+        <div class="nav-buttons">
+            <a href="#day42" class="btn btn-secondary">← Previous: Day 42</a>
+            <a href="#day44" class="btn">Next: Day 44 →</a>
+        </div>
+    </div>
+    
+    <div class="day-container" id="day44">
+        <h2>Day 44: Excel and Python Integration (Anaconda & xlwings)</h2>
+        <h3>The Power of Python in Excel</h3>
+        <p>You can use Python to automate complex tasks, perform advanced data analysis, and build custom functions directly within Excel.</p>
+        
+        <h3>Setup: Anaconda & xlwings</h3>
+        <p><strong>Anaconda</strong> is a distribution for Python and R that simplifies package management. <strong>xlwings</strong> is an open-source library that makes it easy to automate Excel with Python.</p>
+        <div class="formula">
+            <strong>How to Install:</strong>
+            <ol>
+                <li>Download and install Anaconda.</li>
+                <li>Open Anaconda Prompt and run: <code>pip install xlwings</code></li>
+                <li>In Excel, enable the xlwings add-in.</li>
+            </ol>
+        </div>
+        
+        <h3>Hello World Example</h3>
+        <div class="formula">
+            <strong>VBA:</strong>
+            <code>Sub HelloWorld()<br>  Range("A1").Value = "Hello World"<br>End Sub</code>
+        </div>
+        <div class="formula">
+            <strong>Python (xlwings):</strong>
+            <code>import xlwings as xw<br>def hello_world():<br>    wb = xw.books.active<br>    wb.sheets[0].range('A1').value = 'Hello World'</code>
+        </div>
+        
+        <div class="exercise">
+            <strong>Exercise 44:</strong> Run a Python script from Excel:
+            <ol>
+                <li>Set up Anaconda and xlwings.</li>
+                <li>Save a simple Python script (`hello.py`) with the `hello_world` function.</li>
+                <li>In Excel, click "Import Functions" on the xlwings add-in tab.</li>
+                <li>Run the Python function from Excel by pressing a button.</li>
+            </ol>
+        </div>
+        
+        <div class="nav-buttons">
+            <a href="#day43" class="btn btn-secondary">← Previous: Day 43</a>
+            <a href="#day45" class="btn">Next: Day 45 →</a>
+        </div>
+    </div>
+    
+    <div class="day-container" id="day45">
+        <h2>Day 45: Automating Reports with Python (xlwings)</h2>
+        <h3>A Common Automation Workflow</h3>
+        <ol>
+            <li>Use Python to connect to a database or web API to get fresh data.</li>
+            <li>Use a library like pandas to clean and transform the data.</li>
+            <li>Use xlwings to automatically write the cleaned data to Excel.</li>
+            <li>Use xlwings to refresh PivotTables and charts in the Excel report.</li>
+            <li>Save the final report or export it as a PDF.</li>
+        </ol>
+        
+        <h3>Example: Refreshing a PivotTable</h3>
+        <div class="formula">
+            <code>import xlwings as xw<br>def refresh_pivottable():<br>    wb = xw.Book.caller()<br>    pt = wb.sheets[0].api.PivotTables("PivotTable1")<br>    pt.PivotCache().Refresh()</code>
+        </div>
+        
+        <div class="exercise">
+            <strong>Exercise 45:</strong> Build an automated sales report:
+            <ol>
+                <li>Write a Python script that pulls in sales data from a CSV.</li>
+                <li>Clean the data (e.g., remove duplicates, handle missing values).</li>
+                <li>Write the cleaned data to a new sheet in your Excel file.</li>
+                <li>Use another script to refresh a PivotTable connected to the new data.</li>
+            </ol>
+        </div>
+        
+        <div class="nav-buttons">
+            <a href="#day44" class="btn btn-secondary">← Previous: Day 44</a>
+            <a href="#day46" class="btn">Next: Day 46 →</a>
+        </div>
+    </div>
+    
+    <div class="day-container" id="day46">
+        <h2>Day 46: Excel & SQL Integration</h2>
+        <h3>What is SQL?</h3>
+        <p>SQL (Structured Query Language) is a programming language used to manage and query data in relational databases. It's the standard for talking to databases.</p>
+        
+        <h3>Connecting Excel to a Database</h3>
+        <p>Excel can connect to databases to pull in data without needing to copy and paste.</p>
+        <div class="formula">
+            <strong>How to:</strong> Data tab → Get Data → From Database
+        </div>
+        
+        <h3>Using SQL to Query Data</h3>
+        <p>You can write a SQL query to pull in only the specific data you need, which is more efficient than pulling the entire table.</p>
+        <div class="formula">
+            <strong>Example SQL Query:</strong>
+            <code>SELECT [CustomerID], [OrderDate], [TotalDue]<br>FROM [Sales].[SalesOrderHeader]<br>WHERE [OrderDate] >= '2022-01-01'</code>
+        </div>
+        
+        <div class="exercise">
+            <strong>Exercise 46:</strong> Connect to a SQL database:
+            <ol>
+                <li>Install a database (e.g., SQLite) and a client (e.g., DB Browser).</li>
+                <li>Create a simple database with a table of sales data.</li>
+                <li>Connect Excel to the database.</li>
+                <li>Write a SQL query in Power Query to pull in sales data for the last quarter.</li>
+                <li>Load the data into a PivotTable.</li>
+            </ol>
+        </div>
+        
+        <div class="nav-buttons">
+            <a href="#day45" class="btn btn-secondary">← Previous: Day 45</a>
+            <a href="#day47" class="btn">Next: Day 47 →</a>
+        </div>
+    </div>
+    
+    <div class="day-container" id="day47">
+        <h2>Day 47: Excel & Web Data Integration</h2>
+        <h3>Getting Data from the Web</h3>
+        <p>Excel's Power Query can easily pull data from websites, which is useful for tasks like scraping stock prices or public reports.</p>
+        <div class="formula">
+            <strong>How to:</strong> Data tab → Get Data → From Web
+        </div>
+        
+        <h3>Example: Stock Prices</h3>
+        <p>You can import a table from a financial website directly into Excel and set it to refresh automatically.</p>
+        
+        <h3>Cleaning Web Data</h3>
+        <p>Web data often comes in a messy format, so you will likely need to use Power Query's transformation tools to get it into a usable format.</p>
+        
+        <div class="exercise">
+            <strong>Exercise 47:</strong> Get live data from a website:
+            <ol>
+                <li>Find a website with a table of data (e.g., a stock market index).</li>
+                <li>Use "From Web" to import the table into Power Query.</li>
+                <li>Clean the data by changing data types and removing unnecessary columns.</li>
+                <li>Load the data into Excel and create a chart that automatically updates when you refresh the query.</li>
+            </ol>
+        </div>
+        
+        <div class="nav-buttons">
+            <a href="#day46" class="btn btn-secondary">← Previous: Day 46</a>
+            <a href="#day48" class="btn">Next: Day 48 →</a>
+        </div>
+    </div>
+    
+    <div class="day-container" id="day48">
+        <h2>Day 48: Excel's Forecast Sheet</h2>
+        <h3>The Forecast Sheet Tool</h3>
+        <p>The Forecast Sheet tool in Excel creates a visual forecast of time-series data based on an existing dataset.</p>
+        <div class="formula">
+            <strong>How to:</strong> Select your data → Data tab → Forecast Sheet
+        </div>
+        
+        <h3>Key Features</h3>
+        <ul>
+            <li>Generates a new sheet with the forecast data and a line chart.</li>
+            <li>Allows you to adjust the confidence interval.</li>
+            <li>Identifies and handles seasonality automatically.</li>
+        </ul>
+        
+        <div class="warning">
+            <strong>Warning:</strong> The Forecast Sheet works best on time-series data with consistent intervals (e.g., daily, monthly).
+        </div>
+        
+        <div class="exercise">
+            <strong>Exercise 48:</strong> Create a sales forecast:
+            <ol>
+                <li>Create a simple dataset with monthly sales over the last 2 years.</li>
+                <li>Use the Forecast Sheet to predict sales for the next 12 months.</li>
+                <li>Change the confidence interval to see how it affects the forecast range.</li>
+                <li>Analyze the forecast and discuss its potential limitations.</li>
+            </ol>
+        </div>
+        
+        <div class="nav-buttons">
+            <a href="#day47" class="btn btn-secondary">← Previous: Day 47</a>
+            <a href="#day49" class="btn">Next: Day 49 →</a>
+        </div>
+    </div>
+    
+    <div class="day-container" id="day49">
+        <h2>Day 49: Monte Carlo Simulation in Excel</h2>
+        <h3>What is a Monte Carlo Simulation?</h3>
+        <p>A Monte Carlo simulation is a technique used to model the probability of different outcomes in a process that cannot be easily predicted due to random variables. It is often used in finance and risk analysis.</p>
+        
+        <h3>Building a Simulation Model</h3>
+        <p>The basic steps to build a Monte Carlo model in Excel:</p>
+        <ol>
+            <li>Identify the uncertain variables (e.g., stock price, sales volume).</li>
+            <li>Define the probability distribution for each variable (e.g., normal distribution).</li>
+            <li>Use Excel's random number functions (<code>RAND</code>, <code>RANDBETWEEN</code>, <code>NORM.INV</code>) to simulate thousands of scenarios.</li>
+            <li>Calculate the outcome for each scenario.</li>
+            <li>Analyze the results to determine the probability of different outcomes.</li>
+        </ol>
+        
+        <div class="formula">
+            <strong>Simulating a Normal Distribution:</strong>
+            <code>=NORM.INV(RAND(), mean, standard_dev)</code>
+        </div>
+        
+        <div class="exercise">
+            <strong>Exercise 49:</strong> Simulate a stock price:
+            <ol>
+                <li>Set up a simple model with a starting stock price, expected return, and volatility.</li>
+                <li>Use <code>NORM.INV</code> and <code>RAND()</code> to generate 1000 simulated future stock prices.</li>
+                <li>Use a Histogram chart to visualize the distribution of outcomes.</li>
+                <li>Calculate the probability of the stock price being above a certain value.</li>
+            </ol>
+        </div>
+        
+        <div class="nav-buttons">
+            <a href="#day48" class="btn btn-secondary">← Previous: Day 48</a>
+            <a href="#day50" class="btn">Next: Day 50 →</a>
+        </div>
+    </div>
+    
+    <div class="day-container" id="day50">
+        <h2>Day 50: Advanced Excel Security</h2>
+        <h3>Protecting Worksheets & Workbooks</h3>
+        <p>Password-protect your data to prevent unauthorized users from viewing or modifying it.</p>
+        <table class="formula-table">
+            <tr>
+                <th>Protection Level</th>
+                <th>How to</th>
+                <th>Purpose</th>
+            </tr>
+            <tr>
+                <td>Worksheet</td>
+                <td>Review tab → Protect Sheet</td>
+                <td>Prevents editing of cells, but a user can unprotect it if they know the password.</td>
+            </tr>
+            <tr>
+                <td>Workbook Structure</td>
+                <td>Review tab → Protect Workbook</td>
+                <td>Prevents adding, deleting, or renaming sheets.</td>
+            </tr>
+        </table>
+        
+        <h3>File-Level Security</h3>
+        <p>You can add a password to the entire file to prevent it from being opened without the password.</p>
+        <div class="formula">
+            <strong>How to:</strong> File → Info → Protect Workbook → Encrypt with Password
+        </div>
+        
+        <div class="warning">
+            <strong>Warning:</strong> If you lose the password, there is no way to recover it.
+        </div>
+        
+        <div class="exercise">
+            <strong>Exercise 50:</strong> Implement security measures:
+            <ol>
+                <li>Create a simple data entry form.</li>
+                <li>Lock all the formulas in the sheet.</li>
+                <li>Protect the worksheet so users can only input data in specific cells.</li>
+                <li>Protect the workbook structure to prevent users from changing sheet order.</li>
+                <li>Add a password to the entire file.</li>
+            </ol>
+        </div>
+        
+        <div class="nav-buttons">
+            <a href="#day49" class="btn btn-secondary">← Previous: Day 49</a>
+            <a href="#day51" class="btn">Next: Day 51 →</a>
+        </div>
+    </div>
+    
+    <div class="day-container" id="day51">
+        <h2>Day 51: Mastery Project 1 - Financial Modeling</h2>
+        <h3>Project Goal</h3>
+        <p>Build a comprehensive financial model to forecast a company's performance for the next 5 years. This project will integrate many of the skills you've learned so far.</p>
+        
+        <h3>Key Components</h3>
+        <ul>
+            <li><strong>Assumptions:</strong> A dedicated sheet for all input variables (e.g., revenue growth rate, cost of goods sold percentage).</li>
+            <li><strong>Income Statement:</strong> A projected income statement based on the assumptions.</li>
+            <li><strong>Balance Sheet:</strong> A projected balance sheet.</li>
+            <li><strong>Cash Flow Statement:</strong> A projected cash flow statement.</li>
+            <li><strong>Dashboard:</strong> A summary dashboard with key metrics (e.g., Net Profit, Cash Flow) and charts.</li>
+        </ul>
+        
+        <h3>Advanced Features to Include</h3>
+        <ul>
+            <li>Use named ranges for all key assumptions.</li>
+            <li>Implement error handling with <code>IFERROR</code>.</li>
+            <li>Use data validation to restrict input values.</li>
+            <li>Use scenarios to compare different growth forecasts.</li>
+            <li>Create a dynamic chart that shows the projected profit over time.</li>
+        </ul>
+        
+        <div class="nav-buttons">
+            <a href="#day50" class="btn btn-secondary">← Previous: Day 50</a>
+            <a href="#day52" class="btn">Next: Day 52 →</a>
+        </div>
+    </div>
+    
+    <div class="day-container" id="day52">
+        <h2>Day 52: Mastery Project 2 - Sales Dashboard</h2>
+        <h3>Project Goal</h3>
+        <p>Build a fully interactive sales dashboard that allows a user to analyze performance by region, product, and salesperson.</p>
+        
+        <h3>Key Components</h3>
+        <ul>
+            <li><strong>Raw Data:</strong> A sheet containing the raw sales data.</li>
+            <li><strong>Data Model:</strong> Use Power Pivot to create a data model.</li>
+            <li><strong>PivotTables:</strong> Create multiple PivotTables to summarize the data in different ways.</li>
+            <li><strong>PivotCharts:</strong> Create a variety of charts to visualize the data.</li>
+            <li><strong>Slicers & Timelines:</strong> Add interactive filters for a dynamic user experience.</li>
+        </ul>
+        
+        <h3>Advanced Features to Include</h3>
+        <ul>
+            <li>Use Power Query to clean and transform the raw data.</li>
+            <li>Add DAX measures to calculate custom KPIs (e.g., sales per day).</li>
+            <li>Use conditional formatting to highlight top performers or low-performing products.</li>
+            <li>Connect a single slicer to all the PivotTables on the dashboard.</li>
+        </ul>
+        
+        <div class="nav-buttons">
+            <a href="#day51" class="btn btn-secondary">← Previous: Day 51</a>
+            <a href="#day53" class="btn">Next: Day 53 →</a>
+        </div>
+    </div>
+    
+    <div class="day-container" id="day53">
+        <h2>Day 53: Mastery Project 3 - Project Management Tracker</h2>
+        <h3>Project Goal</h3>
+        <p>Create an automated project management tracker that visualizes project progress and key milestones.</p>
+        
+        <h3>Key Components</h3>
+        <ul>
+            <li><strong>Project Data:</strong> A sheet containing project tasks, start dates, end dates, and completion percentages.</li>
+            <li><strong>Gantt Chart:</strong> Use conditional formatting to create a dynamic Gantt chart.</li>
+            <li><strong>Timeline:</strong> A visual representation of key milestones.</li>
+            <li><strong>Dashboard:</strong> A summary dashboard with key metrics like "Projects On Track" and "Overdue Tasks".</li>
+        </ul>
+        
+        <h3>Advanced Features to Include</h3>
+        <ul>
+            <li>Use date functions (e.g., <code>TODAY</code>, <code>NETWORKDAYS</code>) to automatically calculate project duration and identify overdue tasks.</li>
+            <li>Use a simple VBA macro to automate a task, like adding a new project entry with a pre-formatted template.</li>
+            <li>Use data validation to create a dropdown list of project statuses.</li>
+            <li>Implement a progress bar that updates automatically.</li>
+        </ul>
+        
+        <div class="nav-buttons">
+            <a href="#day52" class="btn btn-secondary">← Previous: Day 52</a>
+            <a href="#day54" class="btn">Next: Day 54 →</a>
+        </div>
+    </div>
+    
+    <div class="day-container" id="day54">
+        <h2>Day 54: Mastery Project 4 - Inventory Management System</h2>
+        <h3>Project Goal</h3>
+        <p>Design an inventory management system in Excel that tracks stock levels, flags low stock, and forecasts reorder points.</p>
+        
+        <h3>Key Components</h3>
+        <ul>
+            <li><strong>Inventory List:</strong> A table containing product ID, stock quantity, cost, and reorder threshold.</li>
+            <li><strong>Sales Log:</strong> A table where sales are entered.</li>
+            <li><strong>Dashboard:</strong> A summary dashboard with real-time stock levels and alerts.</li>
+        </ul>
+        
+        <h3>Advanced Features to Include</h3>
+        <ul>
+            <li>Use a simple macro to automate the sales entry process (e.g., subtract quantity from stock).</li>
+            <li>Use conditional formatting to highlight products below their reorder threshold.</li>
+            <li>Use data validation to prevent negative stock values.</li>
+            <li>Use lookup functions (<code>VLOOKUP</code> or <code>XLOOKUP</code>) to automatically pull in product details based on product ID.</li>
+            <li>Use a simple forecasting model to predict when stock will run out.</li>
+        </ul>
+        
+        <div class="nav-buttons">
+            <a href="#day53" class="btn btn-secondary">← Previous: Day 53</a>
+            <a href="#day55" class="btn">Next: Day 55 →</a>
+        </div>
+    </div>
+    
+    <div class="day-container" id="day55">
+        <h2>Day 55: Mastery Project 5 - Employee Performance Tracker</h2>
+        <h3>Project Goal</h3>
+        <p>Create a tracker and dashboard to monitor employee performance and productivity.</p>
+        
+        <h3>Key Components</h3>
+        <ul>
+            <li><strong>Employee Data:</strong> A table with employee details and performance scores.</li>
+            <li><strong>KPIs:</strong> Key Performance Indicators like "Average Score" and "Top Performer".</li>
+            <li><strong>Dashboard:</strong> A dashboard that allows managers to see individual or team performance at a glance.</li>
+        </ul>
+        
+        <h3>Advanced Features to Include</h3>
+        <ul>
+            <li>Use a dropdown list to select an employee and automatically update the dashboard with their performance data.</li>
+            <li>Use conditional formatting to color-code performance scores (e.g., green for high, red for low).</li>
+            <li>Use statistical functions (e.g., <code>AVERAGE</code>, <code>STDEV</code>) to analyze team performance.</li>
+            <li>Create a chart to visualize the distribution of performance scores.</li>
+        </ul>
+        
+        <div class="nav-buttons">
+            <a href="#day54" class="btn btn-secondary">← Previous: Day 54</a>
+            <a href="#day56" class="btn">Next: Day 56 →</a>
+        </div>
+    </div>
+    
+    <div class="day-container" id="day56">
+        <h2>Day 56: Mastery Project 6 - Budget & Expense Tracker</h2>
+        <h3>Project Goal</h3>
+        <p>Build a personal or small business budget and expense tracker that provides real-time insights.</p>
+        
+        <h3>Key Components</h3>
+        <ul>
+            <li><strong>Budget Table:</strong> A table of planned budgets by category.</li>
+            <li><strong>Transaction Log:</strong> A table to log all income and expenses.</li>
+            <li><strong>Dashboard:</strong> A dashboard with a summary of actual vs. budgeted spending.</li>
+        </ul>
+        
+        <h3>Advanced Features to Include</h3>
+        <ul>
+            <li>Use <code>SUMIF</code>/<code>SUMIFS</code> to automatically categorize and sum expenses.</li>
+            <li>Use conditional formatting to show if a category is over budget.</li>
+            <li>Create a Pie Chart to visualize spending by category.</li>
+            <li>Use a slicer for the month or quarter to see spending trends.</li>
+        </ul>
+        
+        <div class="nav-buttons">
+            <a href="#day55" class="btn btn-secondary">← Previous: Day 55</a>
+            <a href="#day57" class="btn">Next: Day 57 →</a>
+        </div>
+    </div>
+    
+    <div class="day-container" id="day57">
+        <h2>Day 57: Mastery Project 7 - Data Cleaning & Automation</h2>
+        <h3>Project Goal</h3>
+        <p>Use Power Query and VBA to automate a repetitive data cleaning task, such as preparing monthly reports.</p>
+        
+        <h3>Key Components</h3>
+        <ul>
+            <li><strong>Raw Data:</strong> A source file with inconsistent or messy data.</li>
+            <li><strong>Power Query:</strong> A set of recorded steps to transform the data.</li>
+            <li><strong>VBA Macro:</strong> A script to automate the entire process from data import to report generation.</li>
+        </ul>
+        
+        <h3>Advanced Features to Include</h3>
+        <ul>
+            <li>Use Power Query's unpivot function to transform a cross-tabular report into a clean, normalized table.</li>
+            <li>Use Power Query to merge data from multiple files in a folder.</li>
+            <li>Write a VBA script that refreshes all queries and PivotTables in the workbook with a single click.</li>
+            <li>Create a user-friendly button to run the macro.</li>
+        </ul>
+        
+        <div class="nav-buttons">
+            <a href="#day56" class="btn btn-secondary">← Previous: Day 56</a>
+            <a href="#day58" class="btn">Next: Day 58 →</a>
+        </div>
+    </div>
+    
+    <div class="day-container" id="day58">
+        <h2>Day 58: Mastery Project 8 - Dynamic Financial Report</h2>
+        <h3>Project Goal</h3>
+        <p>Build a dynamic financial report that can be filtered and analyzed in various ways.</p>
+        
+        <h3>Key Components</h3>
+        <ul>
+            <li><strong>Financial Data:</strong> A data table containing revenue, expenses, and profit by month and department.</li>
+            <li><strong>Dynamic Filtering:</strong> A system that allows a user to select a department and a date range.</li>
+            <li><strong>Charts:</strong> A line chart showing profit over time and a bar chart comparing performance by department.</li>
+        </ul>
+        
+        <h3>Advanced Features to Include</h3>
+        <ul>
+            <li>Use <code>OFFSET</code> and <code>MATCH</code> to create a dynamic chart range that updates based on the selected date range.</li>
+            <li>Use a two-way lookup (e.g., <code>INDEX</code>/<code>MATCH</code>) to pull in specific data points for a selected department.</li>
+            <li>Use data validation to create dropdown lists for department and date range.</li>
+            <li>Implement a simple macro to export the filtered report as a PDF.</li>
+        </ul>
+        
+        <div class="nav-buttons">
+            <a href="#day57" class="btn btn-secondary">← Previous: Day 57</a>
+            <a href="#day59" class="btn">Next: Day 59 →</a>
+        </div>
+    </div>
+    
+    <div class="day-container" id="day59">
+        <h2>Day 59: Mastery Project 9 - Business Case Analysis</h2>
+        <h3>Project Goal</h3>
+        <p>Develop a business case analysis model to evaluate a potential new project or investment.</p>
+        
+        <h3>Key Components</h3>
+        <ul>
+            <li><strong>Assumptions:</strong> A sheet of key assumptions (e.g., initial investment, sales price, market size).</li>
+            <li><strong>Cash Flow Forecast:</strong> A projection of cash inflows and outflows for the project.</li>
+            <li><strong>Metrics:</strong> Key metrics like Payback Period, Net Present Value (NPV), and Internal Rate of Return (IRR).</li>
+            <li><strong>Dashboard:</strong> A summary of key metrics and a sensitivity analysis chart.</li>
+        </ul>
+        
+        <h3>Advanced Features to Include</h3>
+        <ul>
+            <li>Use financial functions (<code>NPV</code>, <code>IRR</code>) to calculate key investment metrics.</li>
+            <li>Create a data table to show how the NPV changes based on two key variables (e.g., sales price and market size).</li>
+            <li>Use Goal Seek to determine what sales price is needed to achieve a specific IRR.</li>
+            <li>Build a professional-looking summary dashboard.</li>
+        </ul>
+        
+        <div class="nav-buttons">
+            <a href="#day58" class="btn btn-secondary">← Previous: Day 58</a>
+            <a href="#day60" class="btn">Next: Day 60 →</a>
+        </div>
+    </div>
+    
+    <div class="day-container" id="day60">
+        <h2>Day 60: Mastery Project 10 - Final Report & Presentation</h2>
+        <h3>Project Goal</h3>
+        <p>Combine your skills from the entire course to create a final, comprehensive report and presentation.</p>
+        
+        <h3>Key Components</h3>
+        <ul>
+            <li><strong>Integrated Workbook:</strong> A single Excel file containing multiple sheets:
+                <ul>
+                    <li>Raw Data</li>
+                    <li>Power Query Transformations (ETL)</li>
+                    <li>Data Model (Power Pivot)</li>
+                    <li>DAX Measures & KPIs</li>
+                    <li>Interactive Dashboard</li>
+                    <li>Automated Report (with a VBA macro)</li>
+                </ul>
+            </li>
+            <li><strong>Presentation:</strong> A final report summarizing your findings and methodology.</li>
+        </ul>
+        
+        <h3>Final Checklist</h3>
+        <p>Before you finalize your project, check for:</p>
+        <ul>
+            <li>Clean and well-structured data.</li>
+            <li>Clear and easy-to-read formulas.</li>
+            <li>Professional and consistent formatting.</li>
+            <li>Intuitive user experience (for the dashboard).</li>
+            <li>Comprehensive and accurate analysis.</li>
+        </ul>
+        
+        <div class="nav-buttons">
+            <a href="#day59" class="btn btn-secondary">← Previous: Day 59</a>
+            <span></span>
+        </div>
+    </div>
+    
+    <div class="formula-data" style="display:none;">
+        {
+            "categories": [
+                {
+                    "name": "Lookup & Reference",
+                    "count": 10
+                },
+                {
+                    "name": "Logical",
+                    "count": 5
+                },
+                {
+                    "name": "Text",
+                    "count": 15
+                },
+                {
+                    "name": "Math & Trig",
+                    "count": 20
+                },
+                {
+                    "name": "Date & Time",
+                    "count": 12
+                },
+                {
+                    "name": "Financial",
+                    "count": 8
+                },
+                {
+                    "name": "Statistical",
+                    "count": 10
+                },
+                {
+                    "name": "Information",
+                    "count": 5
+                },
+                {
+                    "name": "Engineering",
+                    "count": 3
+                },
+                {
+                    "name": "Array",
+                    "count": 10
+                }
+            ]
+        }
+    </div>
+
+    <script>
+        function updateProgress() {
+            const viewedDays = JSON.parse(localStorage.getItem('excelCourseProgress') || '[]');
+            const totalDays = 60;
+            const progress = (viewedDays.length / totalDays) * 100;
+            const progressBar = document.getElementById('course-progress');
+            progressBar.style.width = progress + '%';
+            progressBar.innerText = Math.round(progress) + '%';
+        }
+
+        function openTab(evt, tabName) {
+            let i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tab");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        function searchFormulas() {
+            const input = document.getElementById('search-input');
+            const filter = input.value.toLowerCase();
+            const container = document.getElementById('formula-container');
+            const cards = container.getElementsByClassName('formula-card');
+            
+            for (let i = 0; i < cards.length; i++) {
+                let name = cards[i].textContent || cards[i].innerText;
+                if (name.toLowerCase().indexOf(filter) > -1) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+
+        function generateFormulaCards() {
+            const dataElement = document.querySelector('.formula-data');
+            const data = JSON.parse(dataElement.textContent);
+            const container = document.getElementById('formula-container');
+            
+            container.innerHTML = '';
+            data.categories.forEach(category => {
+                const card = document.createElement('div');
+                card.className = 'formula-card';
+                card.innerHTML = `
+                    <h3>${category.name} Functions</h3>
+                    <p>${category.count} formula variations</p>
+                    <div class="formula-syntax">=FUNCTION(argument1, argument2)</div>
+                    <p>Click to view all ${category.name.toLowerCase()} formulas</p>
+                `;
+                container.appendChild(card);
+            });
+        }
+        
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            updateProgress();
+            generateFormulaCards();
+            
+            // Track which days are viewed
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const dayId = entry.target.id;
+                        let viewedDays = JSON.parse(localStorage.getItem('excelCourseProgress') || '[]');
+                        
+                        if (!viewedDays.includes(dayId)) {
+                            viewedDays.push(dayId);
+                            localStorage.setItem('excelCourseProgress', JSON.stringify(viewedDays));
+                            updateProgress();
+                        }
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            document.querySelectorAll('.day-container').forEach(day => {
+                observer.observe(day);
+            });
+        });
+    </script>
+</body>
+</html>
